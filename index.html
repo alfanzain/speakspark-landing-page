@@ -37,6 +37,7 @@
     html { scroll-behavior: smooth; }
     .gradient-hero { background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #9333ea 100%); }
     .gradient-text { background: linear-gradient(135deg, #c084fc, #f3e8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    mark.gradient-text { background-color: transparent; }
     .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
     .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15); }
     .wa-btn { background: linear-gradient(135deg, #25D366, #128C7E); }
@@ -110,26 +111,64 @@
   <script>
     function getVariantParam(name) {
       var params = new URLSearchParams(location.search);
-      return params.get(name) || '8';
+      return params.get(name) || '1';
     }
   </script>
   <script>
-    // Hero headline switcher — ?hero_headline=1..5
+    // Hero headline switcher — ?hero_headline=1..6
+    // Each variant is an array of segments: { line, gradient, text }
+    // Segments on the same line number are joined inline; different lines get <br />.
     (function() {
       var n = getVariantParam('hero_headline');
-      if (!n || n === '1') return;
-        var headlines = {
-          '1': ['English Masih Menghambat?', 'Siap Berkarir di Luar Negeri dalam 90 Hari'],
-          '2': ['Dari Takut Ngomong English', 'ke Siap Kerja Global dalam 90 Hari'],
-          '3': ['Bangun English Confidence', 'untuk Karir Luar Negeri dalam 90 Hari'],
-          '4': ['Jangan Biarkan English', 'Menghambat Karir Globalmu'],
-          '5': ['Siap Kerja di Luar Negeri', 'Mulai dari English yang Lebih Percaya Diri'],
-        };
-      var h = headlines[n];
-      if (!h) return;
+      if (!n) return;
+      var headlines = {
+        '1': [
+          { line: 1, gradient: false, text: 'Pede ngomong English' },
+          { line: 2, gradient: true,  text: 'dalam 3 bulan' },
+        ],
+        '2': [
+          { line: 1, gradient: false, text: 'Jago English untuk karir global' },
+          { line: 2, gradient: true,  text: 'dalam 90 hari' },
+        ],
+        '3': [
+          { line: 1, gradient: true,  text: 'Dobrak' },
+          { line: 1, gradient: false,  text: 'penghalang' },
+          { line: 2, gradient: false, text: 'English kamu' },
+        ],
+        '4': [
+          { line: 1, gradient: false, text: 'Lebih' },
+          { line: 1, gradient: true, text: 'percaya diri' },
+          { line: 2, gradient: false, text: 'speaking English' },
+        ],
+        '5': [
+          { line: 1, gradient: false, text: 'Bahasa Inggris lancar,' },
+          { line: 2, gradient: true,  text: 'karir global' },
+          { line: 2, gradient: false, text: 'terbuka' },
+        ],
+        '6': [
+          { line: 1, gradient: false, text: 'Nggak' },
+          { line: 1, gradient: true,  text: 'takut lagi' },
+          { line: 2, gradient: false, text: 'ngomong English' },
+        ],
+      };
+      var segments = headlines[n];
+      if (!segments) return;
       document.addEventListener('DOMContentLoaded', function() {
         var el = document.querySelector('h1');
-        if (el) el.innerHTML = h[0] + '<br /><span class="gradient-text">' + h[1] + '</span>';
+        if (!el) return;
+        var byLine = {};
+        segments.forEach(function(s) {
+          (byLine[s.line] = byLine[s.line] || []).push(s);
+        });
+        var lineNums = Object.keys(byLine).sort();
+        el.innerHTML = lineNums.map(function(l, i) {
+          var parts = byLine[l].map(function(s) {
+            return s.gradient
+              ? '<mark class="gradient-text">' + s.text + '</mark>'
+              : s.text;
+          });
+          return (i > 0 ? '<br />' : '') + parts.join(' ');
+        }).join('');
       });
     })();
   </script>
@@ -182,19 +221,19 @@
       </svg>
     </div>
 
-    <div class="max-w-3xl mx-auto text-center relative z-10">
+    <div class="max-w-5xl mx-auto text-center relative z-10">
       <!-- Social proof pill -->
       <!-- <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#f3e8ff">
         <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block"></span>
         150+ profesional yang mau kerja di luar negeri sudah bergabung
       </div> -->
 
-      <h1 class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 tracking-tight mt-14">
-        Bahasa Inggris Lancar<br /><span class="gradient-text">Karir Luar Negeri Terbuka</span>
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 tracking-tight mt-14">
+        Bahasa Inggris Lancar <mark class="gradient-text">Karir Luar Negeri Terbuka</mark>
       </h1>
 
       <p class="text-sm md:text-base mb-10 max-w-xl mx-auto leading-relaxed" style="color:#e9d5ff">
-        Latihan tiap hari. Dapat feedback, pantau progress, didampingin mentor</span>
+        Latihan tiap hari. Dapat feedback, pantau progress, didampingin mentor
       </p>
 
       <div class="flex flex-col gap-3 justify-center items-center mb-12 w-full max-w-sm mx-auto">
@@ -401,26 +440,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Supporting stats row -->
-      <!-- <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-        <div class="rounded-2xl py-5 px-3" style="background:#faf5ff">
-          <div class="text-2xl font-black" style="color:#6d28d9">2023</div>
-          <div class="text-xs text-gray-400 mt-1 leading-snug">SpeakSpark<br/>mulai dibangun</div>
-        </div>
-        <div class="rounded-2xl py-5 px-3" style="background:#faf5ff">
-          <div class="text-2xl font-black" style="color:#6d28d9">150+</div>
-          <div class="text-xs text-gray-400 mt-1 leading-snug">profesional<br/>sudah berlatih</div>
-        </div>
-        <div class="rounded-2xl py-5 px-3" style="background:#faf5ff">
-          <div class="text-2xl font-black" style="color:#6d28d9">5 skill</div>
-          <div class="text-xs text-gray-400 mt-1 leading-snug">dilatih &<br/>diukur tiap hari</div>
-        </div>
-        <div class="rounded-2xl py-5 px-3" style="background:#faf5ff">
-          <div class="text-2xl font-black" style="color:#6d28d9">15 min</div>
-          <div class="text-xs text-gray-400 mt-1 leading-snug">latihan harian<br/>yang cukup</div>
-        </div>
-      </div> -->
     </div>
   </section>
 
@@ -686,10 +705,9 @@
 
       document.addEventListener('DOMContentLoaded', function() {
         var hWrap = document.getElementById('dev-headlines');
-        var headlineLabels = ['Lancar→Karir','Takut→Confident','15 Menit','Satu Kendala','Capek Lokal?'];
-        for (var i = 1; i <= 5; i++) {
+        for (var i = 1; i <= 6; i++) {
           (function(n) {
-            hWrap.appendChild(btn(headlineLabels[n-1], curH === String(n), function() { go(n); }));
+            hWrap.appendChild(btn(i, curH === String(n), function() { go(n); }));
           })(i);
         }
       });
