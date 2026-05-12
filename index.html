@@ -122,18 +122,30 @@
     }
   </style>
   <script>
+    var DEFAULT_VARIANTS = {
+      hero_headline: '8',
+      primary_button_cta: '6',
+      social_proof: '3',
+      footer_cta: '2'
+    };
+    function getVariantParam(name) {
+      var params = new URLSearchParams(location.search);
+      if (!location.search) return DEFAULT_VARIANTS[name] || '1';
+      return params.get(name) || '1';
+    }
+
     // Footer CTA variant switcher — ?footer_cta=1..2
     (function() {
-      var n = new URLSearchParams(location.search).get('footer_cta');
+      var n = getVariantParam('footer_cta');
       if (!n || n === '1') return;
       document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('footer-cta-v1').style.display = 'none';
         document.getElementById('footer-cta-v2').style.display = 'block';
       });
     })();
-    // CTA button theme switcher — ?primary_button_cta=1..5
+    // CTA button theme switcher — ?primary_button_cta=1..6
     (function() {
-      var n = new URLSearchParams(location.search).get('primary_button_cta');
+      var n = getVariantParam('primary_button_cta');
       if (!n || n === '1') return;
       document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.cta-gradient').forEach(function(el) {
@@ -145,7 +157,7 @@
   <script>
     // Hero headline switcher — ?hero_headline=1..10
     (function() {
-      var n = new URLSearchParams(location.search).get('hero_headline');
+      var n = getVariantParam('hero_headline');
       if (!n || n === '1') return;
       var headlines = {
         '1': ['Bahasa Inggris Lancar', 'Karir Luar Negeri Terbuka'],
@@ -368,7 +380,7 @@
 
   <script>
     (function() {
-      var n = new URLSearchParams(location.search).get('social_proof') || '1';
+      var n = getVariantParam('social_proof');
       document.addEventListener('DOMContentLoaded', function() {
         for (var i = 1; i <= 5; i++) {
           var el = document.getElementById('sp-' + i);
@@ -382,8 +394,8 @@
   <section id="cara-latihan" class="py-16 px-4 bg-white">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12">
-        <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">Semudah chatting di WA</span>
-        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Begini Cara Latihannya</h2>
+        <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">Begini Cara Latihannya</span>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Semudah chatting di WA</h2>
         <p class="text-gray-500 mt-3 max-w-lg mx-auto">Cukup balas pesan. Nggak perlu login, nggak perlu install aplikasi</p>
       </div>
       <div class="grid sm:grid-cols-2 gap-6">
@@ -391,25 +403,37 @@
           <div class="w-14 h-14 rounded-2xl gradient-hero text-white font-black text-2xl flex items-center justify-center mb-4" style="box-shadow:0 8px 20px rgba(124,58,237,0.3)">1</div>
           <h3 class="font-bold text-gray-900 text-lg mb-2">Chat SpeakSpark</h3>
           <p class="text-gray-500 text-sm leading-relaxed">Chat ke nomor SpeakSpark. Kamu akan langsung dapat menu misi latihan harianmu.</p>
-          <img src="images/how-to-use-step-1.png" alt="Buka WhatsApp SpeakSpark" class="mt-4 rounded-2xl w-full object-cover">
+          <img src="images/1.png" alt="Chat SpeakSpark di WhatsApp" class="mt-4 rounded-2xl w-full object-cover">
         </div>
         <div class="card-hover rounded-3xl p-6 border" style="background:#faf5ff;border-color:#e9d5ff">
           <div class="w-14 h-14 rounded-2xl gradient-hero text-white font-black text-2xl flex items-center justify-center mb-4" style="box-shadow:0 8px 20px rgba(124,58,237,0.3)">2</div>
-          <h3 class="font-bold text-gray-900 text-lg mb-2">Pilih Jenis Latihan</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Balas dengan angka sesuai menu — mau melatih skill reading, listening, atau langsung mau latihan percakapan.</p>
-          <img src="images/how-to-use-step-2.png" alt="Pilih Jenis Latihan" class="mt-4 rounded-2xl w-full object-cover">
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Pilih Latihan</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Balas dengan angka sesuai menu. Mulai aja dari latihan yang paling mudah.</p>
+          <img src="images/2.png" alt="Pilih latihan di WhatsApp" class="mt-4 rounded-2xl w-full object-cover">
         </div>
         <div class="card-hover rounded-3xl p-6 border" style="background:#faf5ff;border-color:#e9d5ff">
           <div class="w-14 h-14 rounded-2xl gradient-hero text-white font-black text-2xl flex items-center justify-center mb-4" style="box-shadow:0 8px 20px rgba(124,58,237,0.3)">3</div>
-          <h3 class="font-bold text-gray-900 text-lg mb-2">Kerjakan Latihannya</h3>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Kerjain Latihannya</h3>
           <p class="text-gray-500 text-sm leading-relaxed">Ikuti instruksi SpeakSpark. Tulis paragraf, rekam suara, jawab pertanyaan, atau rekam video.</p>
-          <img src="images/how-to-use-step-3.png" alt="Kerjakan Latihannya" class="mt-4 rounded-2xl w-full object-cover">
+          <img src="images/3.png" alt="Kerjain latihan di WhatsApp" class="mt-4 rounded-2xl w-full object-cover">
         </div>
         <div class="card-hover rounded-3xl p-6 border" style="background:#faf5ff;border-color:#e9d5ff">
           <div class="w-14 h-14 rounded-2xl gradient-hero text-white font-black text-2xl flex items-center justify-center mb-4" style="box-shadow:0 8px 20px rgba(124,58,237,0.3)">4</div>
-          <h3 class="font-bold text-gray-900 text-lg mb-2">Dapat Nilai & Feedback</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Kirim jawabanmu — SpeakSpark akan langsung balas dengan feedback dan skor buat asah skill English kamu biar lebih jago!</p>
-          <img src="images/how-to-use-step-4.png" alt="Dapat Nilai & Feedback" class="mt-4 rounded-2xl w-full object-cover">
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Dapat Feedback &amp; Nilai</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Kirim jawabanmu. SpeakSpark langsung balas dengan feedback dan skor untuk asah skill English kamu.</p>
+          <img src="images/4.png" alt="Feedback dan nilai dari SpeakSpark" class="mt-4 rounded-2xl w-full object-cover">
+        </div>
+        <div class="card-hover rounded-3xl p-6 border" style="background:#faf5ff;border-color:#e9d5ff">
+          <div class="w-14 h-14 rounded-2xl gradient-hero text-white font-black text-2xl flex items-center justify-center mb-4" style="box-shadow:0 8px 20px rgba(124,58,237,0.3)">5</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Cek Progres Kamu</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Pantau perkembangan skill English kamu dari waktu ke waktu.</p>
+          <img src="images/5.png" alt="Cek progres di SpeakSpark" class="mt-4 rounded-2xl w-full object-cover">
+        </div>
+        <div class="card-hover rounded-3xl p-6 border" style="background:#faf5ff;border-color:#e9d5ff">
+          <div class="w-14 h-14 rounded-2xl gradient-hero text-white font-black text-2xl flex items-center justify-center mb-4" style="box-shadow:0 8px 20px rgba(124,58,237,0.3)">6</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Akses Semua Latihan</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Cobain semua latihan yang menarik buatmu.</p>
+          <img src="images/6.png" alt="Akses semua latihan di SpeakSpark" class="mt-4 rounded-2xl w-full object-cover">
         </div>
       </div>
     </div>
@@ -512,13 +536,13 @@
 
           <div class="flex flex-col gap-4 text-gray-600 text-sm leading-relaxed">
             <p>
-              Saya sering lihat programmer Indonesia punya skill teknis yang kuat. Stack dikuasai, problem paham, kualitas kerja nggak kalah. Tapi saat peluang global datang, sering kali yang bikin berhenti adalah English.
+              Saya sering lihat programmer Indonesia punya <strong class="font-bold text-gray-900">skill teknis yang kuat</strong>. Stack dikuasai, problem paham, kualitas kerja nggak kalah. Tapi saat peluang global datang, sering kali yang bikin berhenti adalah English.
             </p>
             <p>
-              Takut interview, beku saat meeting, atau nggak enakan menawarkan diri duluan akhirnya bikin kesempatan lewat begitu saja. Saya tahu rasanya ketika ide kita malah diucapkan orang lain duluan.
+              <strong class="font-bold text-gray-900">Takut interview</strong>, <strong class="font-bold text-gray-900">beku saat meeting</strong>, atau nggak enakan menawarkan diri duluan akhirnya bikin kesempatan lewat begitu saja. Saya tahu rasanya ketika <span class="font-black" style="color:#7c3aed">ide kita malah diucapkan orang lain duluan.</span>
             </p>
             <p>
-              Dulu saya sendiri sering remedial bahasa Inggris, sampai sempat merasa memang nggak akan bisa. Setelah menemukan cara belajar yang tepat, saya bisa sekolah dan kerja profesional di luar negeri. SpeakSpark saya buat agar lebih banyak programmer Indonesia siap bicara, maju duluan, dan ambil kesempatan global.
+              Dulu saya sendiri sering remedial bahasa Inggris, sampai sempat merasa <strong class="font-bold text-gray-900">memang nggak akan pernah bisa bahasa Inggris.</strong> Setelah menemukan cara belajar yang tepat, saya bisa sekolah dan kerja profesional di luar negeri. SpeakSpark saya buat supaya <span class="font-black" style="background:linear-gradient(135deg,#7c3aed,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">makin banyak orang Indonesia yang bisa dapat kesempatan global dan hidup jauh lebih sejahtera. <span class="underline decoration-2 underline-offset-4" style="text-decoration-color:#ec4899">Termasuk kamu.</span></span>
             </p>
           </div>
         </div>
@@ -551,8 +575,9 @@
     <div class="max-w-2xl mx-auto">
       <div class="text-center mb-10">
         <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">Pilih Paket</span>
-        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Bayar sekali sampai kamu jago</h2>
-        <p class="text-gray-500 mt-3 max-w-lg mx-auto">Sesuain dengan mimpimu kerja di luar negerianya progres paling terasa kalau kamu latihan konsisten selama 2 bulan.</p>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Bayar sekali sampai kamu jago*</h2>
+        <p class="text-gray-500 mt-3 max-w-lg mx-auto">Sesuain dengan mimpimu kerja di luar negeri.</p>
+        <p class="text-gray-400 text-xs mt-2 italic">* biasanya orang jadi jago kalau terus-terusan latihan selama 2 bulan</p>
       </div>
 
       <div class="flex flex-col gap-5">
@@ -564,7 +589,7 @@
           </div>
           <p class="text-gray-500 text-sm mb-6 mt-2 leading-relaxed">Cocok buat yang baru mulai dan ingin coba dulu manfaatnya</p>
           <ul class="flex flex-col gap-2 mb-8 text-sm text-gray-700">
-            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> 60 hari akses semua latihan di SpeakSpark</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> <strong>60 hari</strong> akses semua latihan di SpeakSpark</li>
             <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Misi latihan rutin sesuai roadmap yang kamu butuhin</li>
             <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Feedback & skor tiap latihan</li>
             <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Pantau metrik progres</li>
@@ -577,12 +602,12 @@
 
         <!-- Ignite — 395k (recommended) -->
         <div class="rounded-3xl p-7 flex flex-col relative overflow-hidden" style="background:linear-gradient(135deg,#4c1d95 0%,#7c3aed 60%,#9333ea 100%)">
-          <div class="absolute top-4 right-4 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(255,255,255,0.15);color:#f3e8ff">Terpopuler</div>
+          <div class="absolute top-4 right-4 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(255,255,255,0.15);color:#f3e8ff">Recommended</div>
           <div class="text-sm font-bold uppercase tracking-wider mb-3" style="color:#c4b5fd">Paket Ignite</div>
           <div class="flex items-baseline gap-2 mb-1">
             <span class="text-4xl font-black text-white">Rp 395.000</span>
           </div>
-          <p class="text-purple-200 text-sm mb-6 mt-2 leading-relaxed">Buat yang serius improve English dan siap kerja remote.</p>
+          <p class="text-purple-200 text-sm mb-6 mt-2 leading-relaxed">Buat yang serius improve English dan siap kerja remote</p>
           <ul class="flex flex-col gap-2 mb-8 text-sm text-purple-100">
             <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> Semua fitur Paket Spark</li>
             <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> WhatsApp komunitas SpeakSpark Premium</li>
@@ -600,7 +625,7 @@
           <div class="flex items-baseline gap-2 mb-1">
             <span class="text-4xl font-black text-gray-900">Rp 595.000</span>
           </div>
-          <p class="text-gray-500 text-sm mb-6 mt-2 leading-relaxed">Untuk yang ingin hasil maksimal dan siap interview global.</p>
+          <p class="text-gray-500 text-sm mb-6 mt-2 leading-relaxed">Untuk yang ingin hasil maksimal dan siap apply kerja di luar negeri</p>
           <ul class="flex flex-col gap-2 mb-8 text-sm text-gray-700">
             <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Semua fitur Paket Ignite</li>
             <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Career coaching</li>
