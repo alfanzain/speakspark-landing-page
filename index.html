@@ -158,13 +158,14 @@
       <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
         <a href="#cara-latihan" class="hover:text-purple-700 transition-colors">Cara Pakai</a>
         <a href="#fitur" class="hover:text-purple-700 transition-colors">Pantau Progress</a>
+        <a href="#pricing" class="hover:text-purple-700 transition-colors">Harga</a>
         <a href="https://idnremote.com" class="hover:text-purple-700 transition-colors">IDNRemote.com</a>
-        <a href="https://goakal.com/idnremote/speakspark-premium" class="cta-gradient text-white px-6 py-2.5 rounded-full font-bold text-sm">
+        <a href="#pricing" class="cta-gradient text-white px-6 py-2.5 rounded-full font-bold text-sm">
           Beli →
         </a>
       </div>
       <div class="flex md:hidden items-center gap-2">
-        <a href="https://goakal.com/idnremote/speakspark-premium" class="cta-gradient text-white px-4 py-2 rounded-full font-bold text-sm">Beli →</a>
+        <a href="#pricing" class="cta-gradient text-white px-4 py-2 rounded-full font-bold text-sm">Beli →</a>
         <button @click="open = !open" class="p-2 rounded-lg text-gray-600 hover:bg-purple-50">
         <svg x-show="!open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         <svg x-show="open" x-cloak class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -174,6 +175,7 @@
     <div x-show="open" x-cloak x-transition class="md:hidden border-t border-purple-50 bg-white px-4 py-3 flex flex-col gap-3 text-sm font-medium">
       <a href="#cara-latihan" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">Cara Pakai</a>
       <a href="#fitur" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">Pantau Progress</a>
+      <a href="#pricing" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">Harga</a>
       <a href="https://idnremote.com" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">IDNRemote.com</a>
     </div>
   </nav>
@@ -206,7 +208,7 @@
       </p>
 
       <div class="flex flex-col gap-3 justify-center items-center mb-12 w-full max-w-sm mx-auto">
-        <a href="https://goakal.com/idnremote/speakspark-premium" target="_blank" rel="noopener noreferrer" class="cta-gradient w-full text-white px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center">
+        <a href="#pricing" class="cta-gradient w-full text-white px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center">
           Beli Sekarang →
         </a>
         <a href="#cara-latihan" class="cta-secondary w-full px-8 py-4 rounded-2xl font-semibold text-lg flex items-center justify-center gap-2" style="color:rgba(255,255,255,0.65)">
@@ -231,8 +233,28 @@
     </div>
   </section>
 
+  <!-- SOCIAL PROOF -->
+  <section class="bg-white pt-10 pb-12 px-4">
+    <div class="max-w-sm mx-auto">
+      <div class="rounded-2xl grid grid-cols-3 text-center py-5 px-2" style="background:#f5f0ff">
+        <div class="px-2">
+          <div class="text-2xl font-black" style="color:#6d28d9">150+</div>
+          <div class="text-xs text-gray-400 mt-0.5 leading-snug">profesional<br/>bergabung</div>
+        </div>
+        <div class="px-2 border-x" style="border-color:#ddd6fe">
+          <div class="text-2xl font-black" style="color:#6d28d9">4.9★</div>
+          <div class="text-xs text-gray-400 mt-0.5 leading-snug">rata-rata<br/>rating</div>
+        </div>
+        <div class="px-2">
+          <div class="text-2xl font-black" style="color:#6d28d9">30 hr</div>
+          <div class="text-xs text-gray-400 mt-0.5 leading-snug">mulai terasa<br/>bedanya</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CARA LATIHAN -->
-  <section id="cara-latihan" class="py-16 px-4 bg-white">
+  <section id="cara-latihan" class="py-16 px-4/ bg-white">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12">
         <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">Semudah chatting di WA</span>
@@ -333,15 +355,104 @@
     </div>
   </section>
 
-  <!-- CTA BANNER -->
-  <section class="py-14 px-4 gradient-hero text-white text-center">
-    <div class="max-w-xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-black mb-4">Upgrade ke SpeakSpark Premium</h2>
-      <p class="mb-8 text-lg" style="color:#e9d5ff">Roadmap siap. Skor tiap latihan. Didampingin mentor kalau stuck. Nggak perlu install apapun — yuk mulai aja hari ini.</p>
-      <a href="https://goakal.com/idnremote/speakspark-premium" class="inline-flex items-center gap-2 bg-white hover:bg-purple-50 px-8 py-4 rounded-2xl font-bold text-lg shadow-xl transition-colors" style="color:#6d28d9">
-        Ya, Saya Mau Jago English!
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-      </a>
+  <!-- PRICING -->
+  <section id="pricing" class="py-16 px-4 bg-white">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">Pilih Paket</span>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Harga SpeakSpark Premium</h2>
+        <p class="text-gray-500 mt-3 max-w-lg mx-auto">Latihan setiap hari, feedback langsung, pantau progres — semua lewat WhatsApp</p>
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <!-- Starter — 295k -->
+        <div class="rounded-3xl border-2 p-7 flex flex-col" style="border-color:#e9d5ff;background:#faf5ff">
+          <div class="text-sm font-bold uppercase tracking-wider mb-3" style="color:#7c3aed">Starter</div>
+          <div class="flex items-baseline gap-2 mb-1">
+            <span class="text-4xl font-black text-gray-900">Rp 295.000</span>
+            <span class="text-gray-400 text-sm">/ 60 hari</span>
+          </div>
+          <p class="text-gray-500 text-sm mb-6 mt-2 leading-relaxed">Cocok buat yang baru mulai dan ingin coba dulu manfaatnya.</p>
+          <ul class="flex flex-col gap-2 mb-8 text-sm text-gray-700">
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Latihan harian via WhatsApp</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Feedback & skor tiap latihan</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Pantau 5 metrik progres</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Roadmap terstruktur</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Latihan reading & listening</li>
+          </ul>
+          <a href="https://goakal.com/idnremote/speakspark-premium" target="_blank" rel="noopener noreferrer" class="mt-auto w-full text-center py-3.5 rounded-2xl font-bold text-base border-2 transition-colors hover:bg-purple-50" style="border-color:#7c3aed;color:#7c3aed">
+            Mulai Berlangganan
+          </a>
+        </div>
+
+        <!-- Pro — 395k (recommended) -->
+        <div class="rounded-3xl p-7 flex flex-col relative overflow-hidden" style="background:linear-gradient(135deg,#4c1d95 0%,#7c3aed 60%,#9333ea 100%)">
+          <div class="absolute top-4 right-4 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(255,255,255,0.15);color:#f3e8ff">Terpopuler</div>
+          <div class="text-sm font-bold uppercase tracking-wider mb-3" style="color:#c4b5fd">Pro</div>
+          <div class="flex items-baseline gap-2 mb-1">
+            <span class="text-4xl font-black text-white">Rp 395.000</span>
+            <span class="text-purple-300 text-sm">/ 60 hari</span>
+          </div>
+          <p class="text-purple-200 text-sm mb-6 mt-2 leading-relaxed">Buat yang serius improve English dan siap kerja remote.</p>
+          <ul class="flex flex-col gap-2 mb-8 text-sm text-purple-100">
+            <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> Semua fitur Starter</li>
+            <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> Latihan speaking & pronunciation</li>
+            <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> Latihan writing harian</li>
+            <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> Skor fluency & comprehensibility</li>
+            <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> Progress report mingguan</li>
+          </ul>
+          <a href="https://goakal.com/idnremote/speakspark-premium" target="_blank" rel="noopener noreferrer" class="cta-gradient mt-auto w-full text-center py-3.5 rounded-2xl font-bold text-base text-white">
+            Pilih Paket Ini →
+          </a>
+        </div>
+
+        <!-- Elite — 595k -->
+        <div class="rounded-3xl border-2 p-7 flex flex-col" style="border-color:#e9d5ff;background:#faf5ff">
+          <div class="text-sm font-bold uppercase tracking-wider mb-3" style="color:#7c3aed">Elite</div>
+          <div class="flex items-baseline gap-2 mb-1">
+            <span class="text-4xl font-black text-gray-900">Rp 595.000</span>
+            <span class="text-gray-400 text-sm">/ 60 hari</span>
+          </div>
+          <p class="text-gray-500 text-sm mb-6 mt-2 leading-relaxed">Untuk yang ingin hasil maksimal dan siap interview global.</p>
+          <ul class="flex flex-col gap-2 mb-8 text-sm text-gray-700">
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Semua fitur Pro</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Simulasi interview dalam English</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Akses mentor prioritas</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Latihan percakapan spontan harian</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Feedback mendalam per sesi</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Progress report mingguan + insight</li>
+          </ul>
+          <a href="https://goakal.com/idnremote/speakspark-premium" target="_blank" rel="noopener noreferrer" class="mt-auto w-full text-center py-3.5 rounded-2xl font-bold text-base border-2 transition-colors hover:bg-purple-50" style="border-color:#7c3aed;color:#7c3aed">
+            Mulai Berlangganan
+          </a>
+        </div>
+      </div>
+
+      <p class="text-center text-gray-400 text-sm mt-6">Ada pertanyaan soal paket? <a href="https://wa.me/6282125193560?text=Haloo.%20Mau%20tanya%20tentang%20paket%20SpeakSpark%20Premium" target="_blank" rel="noopener noreferrer" class="underline hover:text-purple-600 transition-colors" style="color:#7c3aed">Chat kami di WhatsApp</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="py-16 px-4" style="background:#0f0a1e">
+    <div class="max-w-sm mx-auto">
+      <div class="rounded-3xl px-8 py-12 text-center relative overflow-hidden" style="background:linear-gradient(160deg,#3b0764 0%,#6d28d9 40%,#7e1d6e 100%)">
+        <!-- subtle glow blobs -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(236,72,153,0.25) 0%,transparent 70%);filter:blur(24px)"></div>
+        <div class="absolute bottom-0 right-0 w-40 h-40 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(109,40,217,0.4) 0%,transparent 70%);filter:blur(20px)"></div>
+
+        <p class="text-xs font-bold tracking-[0.18em] uppercase mb-6" style="color:#f9a8d4;font-family:monospace">Mulai Sekarang · Cancel Kapan Aja</p>
+
+        <h2 class="text-4xl font-black text-white leading-tight mb-10">
+          Jago English<br />dalam<br />30 Hari.
+        </h2>
+
+        <a href="https://goakal.com/idnremote/speakspark-premium" target="_blank" rel="noopener noreferrer"
+           class="cta-gradient inline-block w-full py-4 rounded-2xl font-bold text-white text-lg mb-5">
+          Berlangganan →
+        </a>
+
+        <p class="text-sm" style="color:rgba(255,255,255,0.4);font-family:monospace">Latihan via WhatsApp. Tanpa install aplikasi.</p>
+      </div>
     </div>
   </section>
 
