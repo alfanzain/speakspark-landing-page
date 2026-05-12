@@ -52,41 +52,27 @@
       transform: translateY(-1px);
       box-shadow: 0 8px 22px rgba(109,40,217,0.34);
     }
-    /* CTA base — deep violet→electric purple→fuchsia→rose→amber/gold gradient + sonar pulse + shimmer sweep */
+    /* CTA base — shimmer sweep */
     .cta-gradient {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(90deg, #3730a3 0%, #7c3aed 18%, #c026d3 42%, #f72585 68%, #fb923c 88%, #fbbf24 100%);
-      animation: cta-sonar 2.2s cubic-bezier(0.4,0,0.6,1) infinite;
-      transition: transform 0.18s ease, filter 0.18s ease;
     }
-    .cta-gradient:hover { transform: translateY(-3px) scale(1.01); animation-play-state: paused; filter: brightness(1.12) saturate(1.2); box-shadow: 0 14px 55px rgba(192,38,211,0.85), 0 4px 16px rgba(247,37,133,0.6), 0 0 80px rgba(251,146,60,0.35) !important; }
     .cta-gradient::before {
       content: '';
       position: absolute;
       top: 0; left: -100%;
       width: 55%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.38), transparent);
       animation: cta-shimmer 2.4s ease-in-out infinite;
       pointer-events: none;
-    }
-    @keyframes cta-sonar {
-      0%   { box-shadow: 0 6px 40px rgba(192,38,211,0.75), 0 0 0 0 rgba(247,37,133,0.65); }
-      65%  { box-shadow: 0 6px 40px rgba(192,38,211,0.75), 0 0 0 14px rgba(247,37,133,0); }
-      100% { box-shadow: 0 6px 40px rgba(192,38,211,0.75), 0 0 0 0 rgba(247,37,133,0); }
     }
     @keyframes cta-shimmer {
       0%        { left: -100%; }
       35%, 100% { left: 160%; }
     }
-    /* variant options via ?primary_button_cta=2..5 */
-    .cta-opt-2 { background: linear-gradient(90deg, #ff416c 0%, #8b12d4 100%); }
-    .cta-opt-3 { background: linear-gradient(90deg, #f77f00 0%, #d62828 100%); }
-    .cta-opt-4 { background: linear-gradient(90deg, #4776e6 0%, #8e54e9 100%); }
-    .cta-opt-5 { background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%); }
-    .cta-opt-6 { background: linear-gradient(135deg, #ffffff 0%, #f3e8ff 100%); color: #6d28d9 !important; font-weight: 800 !important; box-shadow: 0 4px 20px rgba(255,255,255,0.35), 0 0 0 0 rgba(255,255,255,0.5); animation: cta-sonar-white 2.4s cubic-bezier(0.4,0,0.6,1) infinite; transition: transform 0.15s ease; }
-    .cta-opt-6:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(255,255,255,0.55), 0 0 0 0 rgba(255,255,255,0) !important; animation-play-state: paused; background: linear-gradient(135deg, #ffffff 0%, #ede9fe 100%) !important; }
-    .cta-opt-6::before { background: linear-gradient(90deg, transparent, rgba(109,40,217,0.12), transparent) !important; display: block !important; }
+    /* White CTA theme (baked in) */
+    .cta-gradient { background: linear-gradient(135deg, #ffffff 0%, #f3e8ff 100%) !important; color: #6d28d9 !important; font-weight: 800 !important; box-shadow: 0 4px 20px rgba(255,255,255,0.35), 0 0 0 0 rgba(255,255,255,0.5); animation: cta-sonar-white 2.4s cubic-bezier(0.4,0,0.6,1) infinite !important; transition: transform 0.15s ease; }
+    .cta-gradient:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(255,255,255,0.55), 0 0 0 0 rgba(255,255,255,0) !important; animation-play-state: paused; background: linear-gradient(135deg, #ffffff 0%, #ede9fe 100%) !important; filter: none !important; }
+    .cta-gradient::before { background: linear-gradient(90deg, transparent, rgba(109,40,217,0.12), transparent) !important; }
     @keyframes cta-sonar-white {
       0%   { box-shadow: 0 4px 20px rgba(255,255,255,0.35), 0 0 0 0 rgba(255,255,255,0.6); }
       65%  { box-shadow: 0 4px 20px rgba(255,255,255,0.35), 0 0 0 12px rgba(255,255,255,0); }
@@ -122,37 +108,10 @@
     }
   </style>
   <script>
-    var DEFAULT_VARIANTS = {
-      hero_headline: '8',
-      primary_button_cta: '6',
-      social_proof: '3',
-      footer_cta: '2'
-    };
     function getVariantParam(name) {
       var params = new URLSearchParams(location.search);
-      if (!location.search) return DEFAULT_VARIANTS[name] || '1';
-      return params.get(name) || '1';
+      return params.get(name) || '8';
     }
-
-    // Footer CTA variant switcher — ?footer_cta=1..2
-    (function() {
-      var n = getVariantParam('footer_cta');
-      if (!n || n === '1') return;
-      document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('footer-cta-v1').style.display = 'none';
-        document.getElementById('footer-cta-v2').style.display = 'block';
-      });
-    })();
-    // CTA button theme switcher — ?primary_button_cta=1..6
-    (function() {
-      var n = getVariantParam('primary_button_cta');
-      if (!n || n === '1') return;
-      document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.cta-gradient').forEach(function(el) {
-          el.classList.add('cta-opt-' + n);
-        });
-      });
-    })();
   </script>
   <script>
     // Hero headline switcher — ?hero_headline=1..10
@@ -269,55 +228,8 @@
     </div>
   </section>
 
-  <!-- SOCIAL PROOF -->
-
-  <!-- Variant 1: Dark glass triptych — Vercel/Supabase style -->
-  <section id="sp-1" class="px-4 py-10" style="background:#0d0d14">
-    <div class="max-w-4xl mx-auto">
-      <div class="grid grid-cols-3 overflow-hidden rounded-2xl" style="border:1px solid rgba(255,255,255,0.07)">
-        <div class="px-6 py-8 text-center" style="background:rgba(255,255,255,0.03)">
-          <div class="text-4xl font-black mb-1.5 tabular-nums" style="background:linear-gradient(135deg,#c084fc 0%,#818cf8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">150+</div>
-          <div class="text-xs font-medium tracking-wide" style="color:rgba(255,255,255,0.35)">profesional bergabung</div>
-        </div>
-        <div class="px-6 py-8 text-center" style="background:rgba(255,255,255,0.03);border-left:1px solid rgba(255,255,255,0.07);border-right:1px solid rgba(255,255,255,0.07)">
-          <div class="text-4xl font-black mb-1.5 tabular-nums" style="background:linear-gradient(135deg,#fbbf24 0%,#f59e0b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">4.9★</div>
-          <div class="text-xs font-medium tracking-wide" style="color:rgba(255,255,255,0.35)">rata-rata rating</div>
-        </div>
-        <div class="px-6 py-8 text-center" style="background:rgba(255,255,255,0.03)">
-          <div class="text-4xl font-black mb-1.5 tabular-nums" style="background:linear-gradient(135deg,#34d399 0%,#059669 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">30 hr</div>
-          <div class="text-xs font-medium tracking-wide" style="color:rgba(255,255,255,0.35)">mulai terasa bedanya</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Variant 2: Glowing live pill — Linear/Lemon Squeezy style -->
-  <section id="sp-2" class="bg-white px-4 py-12" style="display:none">
-    <div class="max-w-2xl mx-auto flex flex-col items-center gap-5">
-      <div class="inline-flex items-center gap-4 px-6 py-4 rounded-2xl" style="background:#faf5ff;border:1px solid #ede9fe;box-shadow:0 4px 24px rgba(109,40,217,0.08)">
-        <div class="flex -space-x-3 shrink-0">
-          <div class="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-sm font-black text-white" style="background:linear-gradient(135deg,#7c3aed,#4c1d95)">A</div>
-          <div class="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-sm font-black text-white" style="background:linear-gradient(135deg,#9333ea,#6d28d9)">R</div>
-          <div class="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-sm font-black text-white" style="background:linear-gradient(135deg,#a855f7,#7c3aed)">D</div>
-          <div class="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-sm font-black text-white" style="background:linear-gradient(135deg,#c084fc,#9333ea)">F</div>
-          <div class="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-sm font-black" style="background:#f3e8ff;color:#7c3aed">+</div>
-        </div>
-        <div class="text-left">
-          <div class="flex items-center gap-2 mb-0.5">
-            <span class="w-2 h-2 rounded-full bg-green-400 inline-block" style="box-shadow:0 0 6px #4ade80;animation:pulse 2s infinite"></span>
-            <span class="text-sm font-bold text-gray-900">150+ profesional aktif</span>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <span class="text-amber-400 text-sm leading-none">★★★★★</span>
-            <span class="text-xs text-gray-400">4.9 · terasa bedanya dalam 30 hari</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Variant 3: Bold hero number + supporting row — Stripe style -->
-  <section id="sp-3" class="bg-white px-4 py-14" style="display:none">
+  <!-- SOCIAL PROOF — Bold hero number + supporting row -->
+  <section id="sp-3" class="bg-white px-4 py-14">
     <div class="max-w-2xl mx-auto text-center">
       <div class="relative inline-block mb-6">
         <div class="absolute inset-0 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(139,92,246,0.18) 0%,transparent 70%);filter:blur(28px);transform:scale(1.4)"></div>
@@ -336,59 +248,6 @@
     </div>
   </section>
 
-  <!-- Variant 4: Dark testimonial card — Webflow/Framer style -->
-  <section id="sp-4" class="px-4 py-10" style="display:none;background:#0d0d14">
-    <div class="max-w-2xl mx-auto">
-      <div class="rounded-2xl p-7 relative overflow-hidden" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)">
-        <div class="absolute top-5 right-6 text-7xl font-black leading-none pointer-events-none select-none" style="background:linear-gradient(135deg,#7c3aed,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:0.4">"</div>
-        <div class="flex items-center gap-3 mb-5">
-          <div class="w-11 h-11 rounded-full flex items-center justify-center text-base font-black text-white shrink-0" style="background:linear-gradient(135deg,#7c3aed,#4c1d95);box-shadow:0 0 16px rgba(124,58,237,0.5)">R</div>
-          <div>
-            <div class="text-sm font-bold text-white">Rudi Santoso</div>
-            <div class="text-xs" style="color:rgba(255,255,255,0.4)">Software Engineer · Jakarta</div>
-          </div>
-          <div class="ml-auto flex items-center gap-0.5">
-            <span class="text-amber-400 text-sm">★★★★★</span>
-          </div>
-        </div>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.7)">"Setelah 3 minggu latihan di SpeakSpark, aku akhirnya berani ngomong di interview dengan recruiter luar negeri. Feedback-nya langsung dan spesifik banget."</p>
-        <div class="mt-5 pt-4 flex items-center gap-2" style="border-top:1px solid rgba(255,255,255,0.06)">
-          <span class="w-2 h-2 rounded-full bg-green-400 inline-block" style="box-shadow:0 0 6px #4ade80;animation:pulse 2s infinite"></span>
-          <span class="text-xs" style="color:rgba(255,255,255,0.3)">Bergabung dengan 150+ profesional lainnya</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Variant 5: Floating metric cards — Notion/Linear style -->
-  <section id="sp-5" class="bg-white px-4 py-12" style="display:none">
-    <div class="max-w-2xl mx-auto grid grid-cols-3 gap-4">
-      <div class="rounded-2xl p-5 text-center" style="background:linear-gradient(145deg,#faf5ff,#f3e8ff);border:1px solid #ede9fe;box-shadow:0 4px 20px rgba(109,40,217,0.07)">
-        <div class="text-3xl font-black mb-2 tabular-nums" style="background:linear-gradient(135deg,#7c3aed,#4c1d95);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">150+</div>
-        <div class="text-xs font-semibold text-gray-500 leading-snug">profesional<br/>bergabung</div>
-      </div>
-      <div class="rounded-2xl p-5 text-center" style="background:linear-gradient(145deg,#fffbeb,#fef3c7);border:1px solid #fde68a;box-shadow:0 4px 20px rgba(245,158,11,0.08)">
-        <div class="text-3xl font-black mb-2 tabular-nums" style="background:linear-gradient(135deg,#d97706,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">4.9★</div>
-        <div class="text-xs font-semibold text-gray-500 leading-snug">rata-rata<br/>rating</div>
-      </div>
-      <div class="rounded-2xl p-5 text-center" style="background:linear-gradient(145deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;box-shadow:0 4px 20px rgba(16,185,129,0.07)">
-        <div class="text-3xl font-black mb-2 tabular-nums" style="background:linear-gradient(135deg,#059669,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">30 hr</div>
-        <div class="text-xs font-semibold text-gray-500 leading-snug">mulai terasa<br/>bedanya</div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    (function() {
-      var n = getVariantParam('social_proof');
-      document.addEventListener('DOMContentLoaded', function() {
-        for (var i = 1; i <= 5; i++) {
-          var el = document.getElementById('sp-' + i);
-          if (el) el.style.display = (String(i) === n) ? '' : 'none';
-        }
-      });
-    })();
-  </script>
 
   <!-- CARA LATIHAN -->
   <section id="cara-latihan" class="py-16 px-4 bg-white">
@@ -717,32 +576,8 @@
     </div>
   </section>
 
-  <!-- FOOTER CTA — variant 1: rounded card (default) -->
-  <section id="footer-cta-v1" class="py-16 px-4" style="background:#0d0d14">
-    <div class="relative overflow-hidden rounded-3xl w-full max-w-lg mx-auto px-8 py-16 text-center" style="background:linear-gradient(135deg,#1a0533 0%,#4c1a8a 20%,#7c3aed 50%,#c026d3 75%,#be185d 100%);box-shadow:0 0 0 1px rgba(167,139,250,0.25),0 0 80px rgba(124,58,237,0.5),0 30px 80px rgba(192,38,211,0.35),inset 0 1px 0 rgba(255,255,255,0.1)">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-40 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(251,191,36,0.3) 0%,rgba(236,72,153,0.5) 40%,transparent 70%);filter:blur(32px)"></div>
-      <div class="absolute bottom-0 right-0 w-56 h-56 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(251,146,60,0.35) 0%,rgba(192,38,211,0.4) 50%,transparent 70%);filter:blur(28px)"></div>
-      <div class="absolute top-1/2 left-0 w-40 h-40 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(109,40,217,0.4) 0%,transparent 70%);filter:blur(20px)"></div>
-
-      <div class="relative">
-        <p class="text-xs font-bold tracking-[0.18em] uppercase mb-6" style="color:#fde68a;font-family:monospace;text-shadow:0 0 12px rgba(251,191,36,0.6)">✦ Mulai Sekarang</p>
-
-        <h2 class="text-4xl font-black text-white leading-tight mb-10">
-          Jago English<br />Biar Bisa Kerja<br />di Luar Negeri
-        </h2>
-
-        <a href="#pricing"
-           class="cta-gradient inline-block w-full py-4 rounded-2xl font-bold text-white text-lg mb-5">
-          Beli Sekarang →
-        </a>
-
-        <p class="text-sm" style="color:rgba(255,255,255,0.4);font-family:monospace">Latihan rutin via WhatsApp. Dapet feedback, didampingin mentor, sampai mentoring karir.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER CTA — variant 2: full-width gradient -->
-  <section id="footer-cta-v2" class="relative overflow-hidden py-24 px-6 text-center" style="display:none;background:linear-gradient(135deg,#1a0533 0%,#4c1a8a 20%,#7c3aed 50%,#c026d3 75%,#be185d 100%)">
+  <!-- FOOTER CTA — full-width gradient -->
+  <section id="footer-cta-v2" class="relative overflow-hidden py-24 px-6 text-center" style="background:linear-gradient(135deg,#1a0533 0%,#4c1a8a 20%,#7c3aed 50%,#c026d3 75%,#be185d 100%)">
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(251,191,36,0.28) 0%,rgba(236,72,153,0.5) 40%,transparent 70%);filter:blur(36px)"></div>
     <div class="absolute bottom-0 right-0 w-64 h-64 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(251,146,60,0.3) 0%,rgba(192,38,211,0.45) 50%,transparent 70%);filter:blur(32px)"></div>
     <div class="absolute top-1/2 left-0 w-48 h-48 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(109,40,217,0.4) 0%,transparent 70%);filter:blur(24px)"></div>
@@ -828,34 +663,21 @@
     </div>
   </footer>
 
-  <!-- DEV TOOLBAR -->
+  <!-- DEV TOOLBAR — hero headline only -->
   <div id="dev-toolbar" style="position:fixed;bottom:16px;right:16px;z-index:9999;font-family:monospace;font-size:12px;">
     <div id="dev-panel" style="display:none;background:#1e1b2e;color:#e2e8f0;border-radius:16px;padding:16px;width:260px;box-shadow:0 8px 32px rgba(0,0,0,0.5);margin-bottom:8px;">
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#a78bfa;margin-bottom:8px;">Hero Headline</div>
-      <div id="dev-headlines" style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px;"></div>
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#a78bfa;margin-bottom:8px;">Social Proof</div>
-      <div id="dev-sp" style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px;"></div>
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#a78bfa;margin-bottom:8px;">Footer CTA</div>
-      <div id="dev-footer-cta" style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px;"></div>
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#a78bfa;margin-bottom:8px;">Color Theme</div>
-      <div id="dev-ctas" style="display:flex;flex-wrap:wrap;gap:4px;"></div>
+      <div id="dev-headlines" style="display:flex;flex-wrap:wrap;gap:4px;"></div>
     </div>
-    <button id="dev-toggle" onclick="(function(){var p=document.getElementById('dev-panel');p.style.display=p.style.display==='none'?'block':'none';})()" style="background:#1e1b2e;color:#a78bfa;border:1px solid #4c1d95;border-radius:999px;padding:6px 14px;cursor:pointer;font-family:monospace;font-size:12px;font-weight:700;">⚙ A/B Variants</button>
+    <button id="dev-toggle" onclick="(function(){var p=document.getElementById('dev-panel');p.style.display=p.style.display==='none'?'block':'none';})()" style="background:#1e1b2e;color:#a78bfa;border:1px solid #4c1d95;border-radius:999px;padding:6px 14px;cursor:pointer;font-family:monospace;font-size:12px;font-weight:700;">⚙ Headline</button>
   </div>
   <script>
     (function() {
-      var params = new URLSearchParams(location.search);
-      var curH = params.get('hero_headline') || '1';
-      var curC = params.get('primary_button_cta') || '1';
-      var curSP = params.get('social_proof') || '1';
-      var curFC = params.get('footer_cta') || '1';
+      var curH = getVariantParam('hero_headline');
 
-      function go(h, c, sp, fc) {
+      function go(h) {
         var p = new URLSearchParams(location.search);
         p.set('hero_headline', h);
-        p.set('primary_button_cta', c);
-        p.set('social_proof', sp);
-        p.set('footer_cta', fc);
         location.search = p.toString();
       }
 
@@ -869,32 +691,11 @@
 
       document.addEventListener('DOMContentLoaded', function() {
         var hWrap = document.getElementById('dev-headlines');
-        var cWrap = document.getElementById('dev-ctas');
         var headlineLabels = ['Lancar→Karir','Grogi?','Interview Dekat','Takut→Confident','15 Menit','Bukan Mimpi','Satu Kendala','Tiket Karir','Capek Lokal?','Ngomong Lancar'];
         for (var i = 1; i <= 10; i++) {
           (function(n) {
-            hWrap.appendChild(btn(headlineLabels[n-1], curH === String(n), function() { go(n, curC, curSP, curFC); }));
+            hWrap.appendChild(btn(headlineLabels[n-1], curH === String(n), function() { go(n); }));
           })(i);
-        }
-        var spWrap = document.getElementById('dev-sp');
-        var spLabels = ['Dark Glass', 'Live Pill', 'Hero Num', 'Dark Quote', 'Cards'];
-        for (var k = 1; k <= 5; k++) {
-          (function(n) {
-            spWrap.appendChild(btn(spLabels[n-1], curSP === String(n), function() { go(curH, curC, n, curFC); }));
-          })(k);
-        }
-        var fcWrap = document.getElementById('dev-footer-cta');
-        var fcLabels = ['Rounded Card', 'Full-Width'];
-        for (var f = 1; f <= 2; f++) {
-          (function(n) {
-            fcWrap.appendChild(btn(fcLabels[n-1], curFC === String(n), function() { go(curH, curC, curSP, n); }));
-          })(f);
-        }
-        var ctaLabels = ['Purple', 'Pink', 'Red', 'Blue', 'Green', 'White'];
-        for (var j = 1; j <= 6; j++) {
-          (function(n) {
-            cWrap.appendChild(btn(ctaLabels[n-1], curC === String(n), function() { go(curH, n, curSP, curFC); }));
-          })(j);
         }
       });
     })();
