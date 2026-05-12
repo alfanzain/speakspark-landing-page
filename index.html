@@ -41,45 +41,56 @@
     .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15); }
     .wa-btn { background: linear-gradient(135deg, #25D366, #128C7E); }
     .wa-btn:hover { background: linear-gradient(135deg, #20b858, #0d7060); }
-    /* CTA base — pink→violet gradient + sonar pulse + shimmer sweep */
+    .nav-cta {
+      background: #7c3aed;
+      color: #ffffff;
+      box-shadow: 0 6px 18px rgba(124,58,237,0.28);
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .nav-cta:hover {
+      background: #6d28d9;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(109,40,217,0.34);
+    }
+    /* CTA base — deep violet→electric purple→fuchsia→rose→amber/gold gradient + sonar pulse + shimmer sweep */
     .cta-gradient {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(90deg, #f72585 0%, #b5179e 45%, #7209b7 100%);
-      animation: cta-sonar 2.8s cubic-bezier(0.4,0,0.6,1) infinite;
-      transition: transform 0.15s ease;
+      background: linear-gradient(90deg, #3730a3 0%, #7c3aed 18%, #c026d3 42%, #f72585 68%, #fb923c 88%, #fbbf24 100%);
+      animation: cta-sonar 2.2s cubic-bezier(0.4,0,0.6,1) infinite;
+      transition: transform 0.18s ease, filter 0.18s ease;
     }
-    .cta-gradient:hover { transform: translateY(-2px); animation-play-state: paused; box-shadow: 0 8px 32px rgba(247,37,133,0.65) !important; }
+    .cta-gradient:hover { transform: translateY(-3px) scale(1.01); animation-play-state: paused; filter: brightness(1.12) saturate(1.2); box-shadow: 0 14px 55px rgba(192,38,211,0.85), 0 4px 16px rgba(247,37,133,0.6), 0 0 80px rgba(251,146,60,0.35) !important; }
     .cta-gradient::before {
       content: '';
       position: absolute;
       top: 0; left: -100%;
       width: 55%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      animation: cta-shimmer 3.2s ease-in-out infinite;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.38), transparent);
+      animation: cta-shimmer 2.4s ease-in-out infinite;
       pointer-events: none;
     }
     @keyframes cta-sonar {
-      0%   { box-shadow: 0 4px 24px rgba(247,37,133,0.5), 0 0 0 0 rgba(247,37,133,0.5); }
-      65%  { box-shadow: 0 4px 24px rgba(247,37,133,0.5), 0 0 0 8px rgba(247,37,133,0); }
-      100% { box-shadow: 0 4px 24px rgba(247,37,133,0.5), 0 0 0 0 rgba(247,37,133,0); }
+      0%   { box-shadow: 0 6px 40px rgba(192,38,211,0.75), 0 0 0 0 rgba(247,37,133,0.65); }
+      65%  { box-shadow: 0 6px 40px rgba(192,38,211,0.75), 0 0 0 14px rgba(247,37,133,0); }
+      100% { box-shadow: 0 6px 40px rgba(192,38,211,0.75), 0 0 0 0 rgba(247,37,133,0); }
     }
     @keyframes cta-shimmer {
       0%        { left: -100%; }
-      40%, 100% { left: 160%; }
+      35%, 100% { left: 160%; }
     }
     /* variant options via ?primary_button_cta=2..5 */
     .cta-opt-2 { background: linear-gradient(90deg, #ff416c 0%, #8b12d4 100%); }
     .cta-opt-3 { background: linear-gradient(90deg, #f77f00 0%, #d62828 100%); }
     .cta-opt-4 { background: linear-gradient(90deg, #4776e6 0%, #8e54e9 100%); }
     .cta-opt-5 { background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%); }
-    .cta-opt-6 { background: linear-gradient(90deg, #ffffff 0%, #e9d5ff 40%, #a855f7 100%); color: #4c1d95 !important; box-shadow: 0 4px 24px rgba(255,255,255,0.3); animation: cta-sonar-white 2.8s cubic-bezier(0.4,0,0.6,1) infinite; }
-    .cta-opt-6:hover { box-shadow: 0 8px 32px rgba(255,255,255,0.45) !important; }
-    .cta-opt-6::before { display: none; }
+    .cta-opt-6 { background: linear-gradient(135deg, #ffffff 0%, #f3e8ff 100%); color: #6d28d9 !important; font-weight: 800 !important; box-shadow: 0 4px 20px rgba(255,255,255,0.35), 0 0 0 0 rgba(255,255,255,0.5); animation: cta-sonar-white 2.4s cubic-bezier(0.4,0,0.6,1) infinite; transition: transform 0.15s ease; }
+    .cta-opt-6:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(255,255,255,0.55), 0 0 0 0 rgba(255,255,255,0) !important; animation-play-state: paused; background: linear-gradient(135deg, #ffffff 0%, #ede9fe 100%) !important; }
+    .cta-opt-6::before { background: linear-gradient(90deg, transparent, rgba(109,40,217,0.12), transparent) !important; display: block !important; }
     @keyframes cta-sonar-white {
-      0%   { box-shadow: 0 4px 24px rgba(255,255,255,0.25), 0 0 0 0 rgba(255,255,255,0.4); }
-      65%  { box-shadow: 0 4px 24px rgba(255,255,255,0.25), 0 0 0 8px rgba(255,255,255,0); }
-      100% { box-shadow: 0 4px 24px rgba(255,255,255,0.25), 0 0 0 0 rgba(255,255,255,0); }
+      0%   { box-shadow: 0 4px 20px rgba(255,255,255,0.35), 0 0 0 0 rgba(255,255,255,0.6); }
+      65%  { box-shadow: 0 4px 20px rgba(255,255,255,0.35), 0 0 0 12px rgba(255,255,255,0); }
+      100% { box-shadow: 0 4px 20px rgba(255,255,255,0.35), 0 0 0 0 rgba(255,255,255,0); }
     }
     .cta-secondary { background: rgba(55,15,120,0.7); border: none; transition: background 0.2s ease; }
     .cta-secondary:hover { background: rgba(55,15,120,0.9); }
@@ -111,6 +122,15 @@
     }
   </style>
   <script>
+    // Footer CTA variant switcher — ?footer_cta=1..2
+    (function() {
+      var n = new URLSearchParams(location.search).get('footer_cta');
+      if (!n || n === '1') return;
+      document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('footer-cta-v1').style.display = 'none';
+        document.getElementById('footer-cta-v2').style.display = 'block';
+      });
+    })();
     // CTA button theme switcher — ?primary_button_cta=1..5
     (function() {
       var n = new URLSearchParams(location.search).get('primary_button_cta');
@@ -162,12 +182,12 @@
         <a href="#pricing" class="hover:text-purple-700 transition-colors">Harga</a>
         <a href="#faq" class="hover:text-purple-700 transition-colors">FAQ</a>
         <a href="https://idnremote.com" class="hover:text-purple-700 transition-colors">IDNRemote.com</a>
-        <a href="#pricing" class="cta-gradient text-white px-6 py-2.5 rounded-full font-bold text-sm">
+        <a href="#pricing" class="nav-cta px-6 py-2.5 rounded-full font-bold text-sm">
           Beli →
         </a>
       </div>
       <div class="flex md:hidden items-center gap-2">
-        <a href="#pricing" class="cta-gradient text-white px-4 py-2 rounded-full font-bold text-sm">Beli →</a>
+        <a href="#pricing" class="nav-cta px-4 py-2 rounded-full font-bold text-sm">Beli →</a>
         <button @click="open = !open" class="p-2 rounded-lg text-gray-600 hover:bg-purple-50">
         <svg x-show="!open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         <svg x-show="open" x-cloak class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -203,7 +223,7 @@
         150+ profesional yang mau kerja di luar negeri sudah bergabung
       </div> -->
 
-      <h1 class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 tracking-tight">
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 tracking-tight mt-20">
         Bahasa Inggris Lancar<br /><span class="gradient-text">Karir Luar Negeri Terbuka</span>
       </h1>
 
@@ -238,24 +258,125 @@
   </section>
 
   <!-- SOCIAL PROOF -->
-  <section class="bg-white pt-10 pb-12 px-4">
-    <div class="max-w-sm mx-auto">
-      <div class="rounded-2xl grid grid-cols-3 text-center py-5 px-2" style="background:#f5f0ff">
-        <div class="px-2">
-          <div class="text-2xl font-black" style="color:#6d28d9">150+</div>
-          <div class="text-xs text-gray-400 mt-0.5 leading-snug">profesional<br/>bergabung</div>
+
+  <!-- Variant 1: Dark glass triptych — Vercel/Supabase style -->
+  <section id="sp-1" class="px-4 py-10" style="background:#0d0d14">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-3 overflow-hidden rounded-2xl" style="border:1px solid rgba(255,255,255,0.07)">
+        <div class="px-6 py-8 text-center" style="background:rgba(255,255,255,0.03)">
+          <div class="text-4xl font-black mb-1.5 tabular-nums" style="background:linear-gradient(135deg,#c084fc 0%,#818cf8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">150+</div>
+          <div class="text-xs font-medium tracking-wide" style="color:rgba(255,255,255,0.35)">profesional bergabung</div>
         </div>
-        <div class="px-2 border-x" style="border-color:#ddd6fe">
-          <div class="text-2xl font-black" style="color:#6d28d9">4.9★</div>
-          <div class="text-xs text-gray-400 mt-0.5 leading-snug">rata-rata<br/>rating</div>
+        <div class="px-6 py-8 text-center" style="background:rgba(255,255,255,0.03);border-left:1px solid rgba(255,255,255,0.07);border-right:1px solid rgba(255,255,255,0.07)">
+          <div class="text-4xl font-black mb-1.5 tabular-nums" style="background:linear-gradient(135deg,#fbbf24 0%,#f59e0b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">4.9★</div>
+          <div class="text-xs font-medium tracking-wide" style="color:rgba(255,255,255,0.35)">rata-rata rating</div>
         </div>
-        <div class="px-2">
-          <div class="text-2xl font-black" style="color:#6d28d9">30 hr</div>
-          <div class="text-xs text-gray-400 mt-0.5 leading-snug">mulai terasa<br/>bedanya</div>
+        <div class="px-6 py-8 text-center" style="background:rgba(255,255,255,0.03)">
+          <div class="text-4xl font-black mb-1.5 tabular-nums" style="background:linear-gradient(135deg,#34d399 0%,#059669 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">30 hr</div>
+          <div class="text-xs font-medium tracking-wide" style="color:rgba(255,255,255,0.35)">mulai terasa bedanya</div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Variant 2: Glowing live pill — Linear/Lemon Squeezy style -->
+  <section id="sp-2" class="bg-white px-4 py-12" style="display:none">
+    <div class="max-w-2xl mx-auto flex flex-col items-center gap-5">
+      <div class="inline-flex items-center gap-4 px-6 py-4 rounded-2xl" style="background:#faf5ff;border:1px solid #ede9fe;box-shadow:0 4px 24px rgba(109,40,217,0.08)">
+        <div class="flex -space-x-3 shrink-0">
+          <div class="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-sm font-black text-white" style="background:linear-gradient(135deg,#7c3aed,#4c1d95)">A</div>
+          <div class="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-sm font-black text-white" style="background:linear-gradient(135deg,#9333ea,#6d28d9)">R</div>
+          <div class="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-sm font-black text-white" style="background:linear-gradient(135deg,#a855f7,#7c3aed)">D</div>
+          <div class="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-sm font-black text-white" style="background:linear-gradient(135deg,#c084fc,#9333ea)">F</div>
+          <div class="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-sm font-black" style="background:#f3e8ff;color:#7c3aed">+</div>
+        </div>
+        <div class="text-left">
+          <div class="flex items-center gap-2 mb-0.5">
+            <span class="w-2 h-2 rounded-full bg-green-400 inline-block" style="box-shadow:0 0 6px #4ade80;animation:pulse 2s infinite"></span>
+            <span class="text-sm font-bold text-gray-900">150+ profesional aktif</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-amber-400 text-sm leading-none">★★★★★</span>
+            <span class="text-xs text-gray-400">4.9 · terasa bedanya dalam 30 hari</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variant 3: Bold hero number + supporting row — Stripe style -->
+  <section id="sp-3" class="bg-white px-4 py-14" style="display:none">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="relative inline-block mb-6">
+        <div class="absolute inset-0 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(139,92,246,0.18) 0%,transparent 70%);filter:blur(28px);transform:scale(1.4)"></div>
+        <span class="relative text-7xl md:text-8xl font-black tabular-nums" style="background:linear-gradient(135deg,#7c3aed 0%,#c084fc 50%,#818cf8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1">150+</span>
+      </div>
+      <p class="text-base font-semibold text-gray-700 mb-1">profesional Indonesia latihan bareng SpeakSpark</p>
+      <div class="flex items-center justify-center gap-4 mt-5 pt-5" style="border-top:1px solid #f3f4f6">
+        <!-- <div class="flex items-center gap-1.5">
+          <span class="text-amber-400 text-base leading-none">★★★★★</span>
+          <span class="text-sm font-bold text-gray-800">4.9</span>
+          <span class="text-sm text-gray-400">rating</span>
+        </div> -->
+        <!-- <div class="w-px h-4 bg-gray-200"></div> -->
+        <span class="text-sm text-gray-400">hasil terasa dalam <span class="font-bold text-gray-700">60 hari</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variant 4: Dark testimonial card — Webflow/Framer style -->
+  <section id="sp-4" class="px-4 py-10" style="display:none;background:#0d0d14">
+    <div class="max-w-2xl mx-auto">
+      <div class="rounded-2xl p-7 relative overflow-hidden" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)">
+        <div class="absolute top-5 right-6 text-7xl font-black leading-none pointer-events-none select-none" style="background:linear-gradient(135deg,#7c3aed,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:0.4">"</div>
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center text-base font-black text-white shrink-0" style="background:linear-gradient(135deg,#7c3aed,#4c1d95);box-shadow:0 0 16px rgba(124,58,237,0.5)">R</div>
+          <div>
+            <div class="text-sm font-bold text-white">Rudi Santoso</div>
+            <div class="text-xs" style="color:rgba(255,255,255,0.4)">Software Engineer · Jakarta</div>
+          </div>
+          <div class="ml-auto flex items-center gap-0.5">
+            <span class="text-amber-400 text-sm">★★★★★</span>
+          </div>
+        </div>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.7)">"Setelah 3 minggu latihan di SpeakSpark, aku akhirnya berani ngomong di interview dengan recruiter luar negeri. Feedback-nya langsung dan spesifik banget."</p>
+        <div class="mt-5 pt-4 flex items-center gap-2" style="border-top:1px solid rgba(255,255,255,0.06)">
+          <span class="w-2 h-2 rounded-full bg-green-400 inline-block" style="box-shadow:0 0 6px #4ade80;animation:pulse 2s infinite"></span>
+          <span class="text-xs" style="color:rgba(255,255,255,0.3)">Bergabung dengan 150+ profesional lainnya</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variant 5: Floating metric cards — Notion/Linear style -->
+  <section id="sp-5" class="bg-white px-4 py-12" style="display:none">
+    <div class="max-w-2xl mx-auto grid grid-cols-3 gap-4">
+      <div class="rounded-2xl p-5 text-center" style="background:linear-gradient(145deg,#faf5ff,#f3e8ff);border:1px solid #ede9fe;box-shadow:0 4px 20px rgba(109,40,217,0.07)">
+        <div class="text-3xl font-black mb-2 tabular-nums" style="background:linear-gradient(135deg,#7c3aed,#4c1d95);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">150+</div>
+        <div class="text-xs font-semibold text-gray-500 leading-snug">profesional<br/>bergabung</div>
+      </div>
+      <div class="rounded-2xl p-5 text-center" style="background:linear-gradient(145deg,#fffbeb,#fef3c7);border:1px solid #fde68a;box-shadow:0 4px 20px rgba(245,158,11,0.08)">
+        <div class="text-3xl font-black mb-2 tabular-nums" style="background:linear-gradient(135deg,#d97706,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">4.9★</div>
+        <div class="text-xs font-semibold text-gray-500 leading-snug">rata-rata<br/>rating</div>
+      </div>
+      <div class="rounded-2xl p-5 text-center" style="background:linear-gradient(145deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;box-shadow:0 4px 20px rgba(16,185,129,0.07)">
+        <div class="text-3xl font-black mb-2 tabular-nums" style="background:linear-gradient(135deg,#059669,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">30 hr</div>
+        <div class="text-xs font-semibold text-gray-500 leading-snug">mulai terasa<br/>bedanya</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      var n = new URLSearchParams(location.search).get('social_proof') || '1';
+      document.addEventListener('DOMContentLoaded', function() {
+        for (var i = 1; i <= 5; i++) {
+          var el = document.getElementById('sp-' + i);
+          if (el) el.style.display = (String(i) === n) ? '' : 'none';
+        }
+      });
+    })();
+  </script>
 
   <!-- CARA LATIHAN -->
   <section id="cara-latihan" class="py-16 px-4 bg-white">
@@ -365,20 +486,17 @@
       <div class="text-center mb-12">
         <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">Kenapa SpeakSpark Ada</span>
         <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Cerita di Balik SpeakSpark</h2>
-        <p class="text-gray-500 mt-3 max-w-lg mx-auto">SpeakSpark bukan sekadar produk — ini lahir dari frustrasi nyata yang kami rasakan sendiri</p>
+        <p class="text-gray-500 mt-3 max-w-lg mx-auto"></p>
       </div>
 
       <div class="flex flex-col md:flex-row gap-10 items-center">
-        <!-- Person image placeholder -->
         <div class="w-full md:w-2/5 shrink-0">
-          <!-- 📸 SCREENSHOT PLACEHOLDER: FOUNDER PHOTO
-               Ganti div di bawah dengan <img> foto founder/tim.
-               Rekomendasi: foto portrait, rasio 4:5 atau persegi, background netral.
-               Contoh: <img src="images/founder.jpg" alt="Nama Founder" class="w-full rounded-3xl object-cover" style="aspect-ratio:4/5" /> -->
-          <div class="ss-placeholder w-full rounded-3xl" style="aspect-ratio:4/5;min-height:280px">
-            <span class="ss-label">📸 Foto Founder</span>
-            <p class="mt-2 text-sm text-purple-400">Ganti dengan foto founder / tim SpeakSpark</p>
-            <p class="text-xs text-purple-300 mt-1">Rekomendasi: portrait, rasio 4:5</p>
+          <div>
+            <img src="images/founder.jpeg" alt="Riandy, Founder IDNRemote.com" class="w-full rounded-3xl object-cover" style="aspect-ratio:4/5" />
+            <div class="mt-4 text-center">
+              <div class="font-bold text-gray-900 text-base">Riandy</div>
+              <div class="text-gray-400 text-sm">Founder, IDNRemote.com</div>
+            </div>
           </div>
         </div>
 
@@ -388,44 +506,26 @@
           <div class="rounded-2xl p-6 mb-6 relative" style="background:#faf5ff;border-left:4px solid #7c3aed">
             <svg class="absolute top-4 left-5 w-8 h-8 opacity-20" style="color:#7c3aed" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
             <p class="text-gray-700 text-base md:text-lg font-medium leading-relaxed pl-6">
-              "Dulu gue punya kemampuan English yang cukup — bisa baca, ngerti artikel — tapi begitu ada kesempatan interview kerja luar negeri, gue mental. Nggak bisa ngomong lancar, grogi, dan akhirnya gagal."
+              "Bukan karena kamu nggak mampu secara teknis. Tapi karena ada satu pikiran yang langsung muncul: nanti pas interview pakai bahasa Inggris, gimana?"
             </p>
           </div>
 
           <div class="flex flex-col gap-4 text-gray-600 text-sm leading-relaxed">
             <p>
-              Banyak profesional Indonesia yang punya skill teknis bagus, tapi terhalang satu hal: <strong class="text-gray-900">bahasa Inggris</strong>. Bukan karena malas, tapi karena nggak ada cara latihan yang praktis dan konsisten.
+              Banyak programmer Indonesia punya skill teknis yang kuat. Stack dikuasai, problem bisa dipahami, dan kualitas kerja nggak kalah. Tapi saat peluang global datang, sering kali yang bikin ragu adalah English.
             </p>
             <p>
-              Kursus mahal. Jadwal nggak cocok. Aplikasi belajar terasa seperti game, bukan latihan serius. Dan hasilnya? Stagnasi.
+              Takut interview, minder saat meeting, atau nggak enakan menawarkan diri duluan akhirnya membuat kesempatan lewat begitu saja. Padahal programmer dari negara lain yang skill-nya setara berani maju karena lebih siap komunikasi.
             </p>
             <p>
-              SpeakSpark lahir dari situ. Kami bikin pelatih English yang ada di WhatsApp — yang kamu pakai tiap hari. <strong class="text-gray-900">Latihan 15 menit, langsung dapat feedback, pantau progres nyata.</strong>
+              Riandy sendiri dulu sering remedial bahasa Inggris, sampai sempat merasa memang nggak akan bisa. Setelah menemukan cara belajar yang tepat, ia bisa sekolah dan kerja profesional di luar negeri. SpeakSpark dibuat agar programmer Indonesia bisa melatih English secara praktis, konsisten, dan lebih siap mengambil kesempatan global.
             </p>
-            <p>
-              Bukan aplikasi baru yang harus kamu install dan akhirnya terlupakan. Tapi reminder harian yang bikin kamu tetap on track sampai kamu benar-benar jago.
-            </p>
-          </div>
-
-          <!-- Founder attribution placeholder -->
-          <div class="mt-8 flex items-center gap-4">
-            <!-- 📸 SCREENSHOT PLACEHOLDER: FOUNDER AVATAR
-                 Ganti div di bawah dengan <img> foto kecil founder.
-                 Contoh: <img src="images/founder-avatar.jpg" alt="Nama Founder" class="w-12 h-12 rounded-full object-cover" /> -->
-            <div class="ss-placeholder w-12 h-12 rounded-full shrink-0" style="min-height:0;padding:0;aspect-ratio:1">
-              <span class="text-purple-400 text-xs">📸</span>
-            </div>
-            <div>
-              <!-- 📝 PLACEHOLDER: Ganti dengan nama dan jabatan founder -->
-              <div class="font-bold text-gray-900 text-sm">Nama Founder</div>
-              <div class="text-gray-400 text-xs">Founder, IDNRemote.com</div>
-            </div>
           </div>
         </div>
       </div>
 
       <!-- Supporting stats row -->
-      <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      <!-- <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
         <div class="rounded-2xl py-5 px-3" style="background:#faf5ff">
           <div class="text-2xl font-black" style="color:#6d28d9">2023</div>
           <div class="text-xs text-gray-400 mt-1 leading-snug">SpeakSpark<br/>mulai dibangun</div>
@@ -442,7 +542,7 @@
           <div class="text-2xl font-black" style="color:#6d28d9">15 min</div>
           <div class="text-xs text-gray-400 mt-1 leading-snug">latihan harian<br/>yang cukup</div>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 
@@ -451,70 +551,62 @@
     <div class="max-w-2xl mx-auto">
       <div class="text-center mb-10">
         <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">Pilih Paket</span>
-        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Harga SpeakSpark Premium</h2>
-        <p class="text-gray-500 mt-3 max-w-lg mx-auto">Latihan setiap hari, feedback langsung, pantau progres — semua lewat WhatsApp</p>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Bayar sekali sampai kamu jago</h2>
+        <p class="text-gray-500 mt-3 max-w-lg mx-auto">Sesuain dengan mimpimu kerja di luar negerianya progres paling terasa kalau kamu latihan konsisten selama 2 bulan.</p>
       </div>
 
       <div class="flex flex-col gap-5">
-        <!-- Starter — 295k -->
+        <!-- Spark — 295k -->
         <div class="rounded-3xl border-2 p-7 flex flex-col" style="border-color:#e9d5ff;background:#faf5ff">
-          <div class="text-sm font-bold uppercase tracking-wider mb-3" style="color:#7c3aed">Starter</div>
+          <div class="text-sm font-bold uppercase tracking-wider mb-3" style="color:#7c3aed">Paket Spark</div>
           <div class="flex items-baseline gap-2 mb-1">
             <span class="text-4xl font-black text-gray-900">Rp 295.000</span>
-            <span class="text-gray-400 text-sm">/ 60 hari</span>
           </div>
-          <p class="text-gray-500 text-sm mb-6 mt-2 leading-relaxed">Cocok buat yang baru mulai dan ingin coba dulu manfaatnya.</p>
+          <p class="text-gray-500 text-sm mb-6 mt-2 leading-relaxed">Cocok buat yang baru mulai dan ingin coba dulu manfaatnya</p>
           <ul class="flex flex-col gap-2 mb-8 text-sm text-gray-700">
-            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Latihan harian via WhatsApp</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> 60 hari akses semua latihan di SpeakSpark</li>
             <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Feedback & skor tiap latihan</li>
             <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Pantau 5 metrik progres</li>
-            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Roadmap terstruktur</li>
-            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Latihan reading & listening</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Didampingi mentor via WhatsApp</li>
           </ul>
-          <a href="https://goakal.com/idnremote/speakspark-premium" target="_blank" rel="noopener noreferrer" class="mt-auto w-full text-center py-3.5 rounded-2xl font-bold text-base border-2 transition-colors hover:bg-purple-50" style="border-color:#7c3aed;color:#7c3aed">
-            Mulai Berlangganan
-          </a>
-        </div>
-
-        <!-- Pro — 395k (recommended) -->
-        <div class="rounded-3xl p-7 flex flex-col relative overflow-hidden" style="background:linear-gradient(135deg,#4c1d95 0%,#7c3aed 60%,#9333ea 100%)">
-          <div class="absolute top-4 right-4 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(255,255,255,0.15);color:#f3e8ff">Terpopuler</div>
-          <div class="text-sm font-bold uppercase tracking-wider mb-3" style="color:#c4b5fd">Pro</div>
-          <div class="flex items-baseline gap-2 mb-1">
-            <span class="text-4xl font-black text-white">Rp 395.000</span>
-            <span class="text-purple-300 text-sm">/ 60 hari</span>
-          </div>
-          <p class="text-purple-200 text-sm mb-6 mt-2 leading-relaxed">Buat yang serius improve English dan siap kerja remote.</p>
-          <ul class="flex flex-col gap-2 mb-8 text-sm text-purple-100">
-            <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> Semua fitur Starter</li>
-            <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> Latihan speaking & pronunciation</li>
-            <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> Latihan writing harian</li>
-            <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> Skor fluency & comprehensibility</li>
-            <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> Progress report mingguan</li>
-          </ul>
-          <a href="https://goakal.com/idnremote/speakspark-premium" target="_blank" rel="noopener noreferrer" class="cta-gradient mt-auto w-full text-center py-3.5 rounded-2xl font-bold text-base text-white">
+          <a href="https://goakal.com/idnremote/speakspark-premium/38s79/apply" target="_blank" rel="noopener noreferrer" class="mt-auto w-full text-center py-3.5 rounded-2xl font-bold text-base border-2 transition-colors hover:bg-purple-50" style="border-color:#7c3aed;color:#7c3aed">
             Pilih Paket Ini →
           </a>
         </div>
 
-        <!-- Elite — 595k -->
+        <!-- Ignite — 395k (recommended) -->
+        <div class="rounded-3xl p-7 flex flex-col relative overflow-hidden" style="background:linear-gradient(135deg,#4c1d95 0%,#7c3aed 60%,#9333ea 100%)">
+          <div class="absolute top-4 right-4 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(255,255,255,0.15);color:#f3e8ff">Terpopuler</div>
+          <div class="text-sm font-bold uppercase tracking-wider mb-3" style="color:#c4b5fd">Paket Ignite</div>
+          <div class="flex items-baseline gap-2 mb-1">
+            <span class="text-4xl font-black text-white">Rp 395.000</span>
+          </div>
+          <p class="text-purple-200 text-sm mb-6 mt-2 leading-relaxed">Buat yang serius improve English dan siap kerja remote.</p>
+          <ul class="flex flex-col gap-2 mb-8 text-sm text-purple-100">
+            <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> Semua fitur Paket Spark</li>
+            <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> WhatsApp komunitas SpeakSpark Premium</li>
+            <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> 1 on 1 video call mentoring sepuasnya</li>
+            <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> Sesi gathering speaking English</li>
+          </ul>
+          <a href="https://goakal.com/idnremote/speakspark-premium/baqoh/apply" target="_blank" rel="noopener noreferrer" class="cta-gradient mt-auto w-full text-center py-3.5 rounded-2xl font-bold text-base text-white">
+            Pilih Paket Ini →
+          </a>
+        </div>
+
+        <!-- Launch — 595k -->
         <div class="rounded-3xl border-2 p-7 flex flex-col" style="border-color:#e9d5ff;background:#faf5ff">
-          <div class="text-sm font-bold uppercase tracking-wider mb-3" style="color:#7c3aed">Elite</div>
+          <div class="text-sm font-bold uppercase tracking-wider mb-3" style="color:#7c3aed">Paket Launch</div>
           <div class="flex items-baseline gap-2 mb-1">
             <span class="text-4xl font-black text-gray-900">Rp 595.000</span>
-            <span class="text-gray-400 text-sm">/ 60 hari</span>
           </div>
           <p class="text-gray-500 text-sm mb-6 mt-2 leading-relaxed">Untuk yang ingin hasil maksimal dan siap interview global.</p>
           <ul class="flex flex-col gap-2 mb-8 text-sm text-gray-700">
-            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Semua fitur Pro</li>
-            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Simulasi interview dalam English</li>
-            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Akses mentor prioritas</li>
-            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Latihan percakapan spontan harian</li>
-            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Feedback mendalam per sesi</li>
-            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Progress report mingguan + insight</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Semua fitur Paket Ignite</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Career coaching</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Mock interview dalam English</li>
           </ul>
-          <a href="https://goakal.com/idnremote/speakspark-premium" target="_blank" rel="noopener noreferrer" class="mt-auto w-full text-center py-3.5 rounded-2xl font-bold text-base border-2 transition-colors hover:bg-purple-50" style="border-color:#7c3aed;color:#7c3aed">
-            Mulai Berlangganan
+          <a href="https://goakal.com/idnremote/speakspark-premium/00c7a/apply" target="_blank" rel="noopener noreferrer" class="mt-auto w-full text-center py-3.5 rounded-2xl font-bold text-base border-2 transition-colors hover:bg-purple-50" style="border-color:#7c3aed;color:#7c3aed">
+            Pilih Paket Ini →
           </a>
         </div>
       </div>
@@ -549,7 +641,7 @@
             <svg class="w-5 h-5 shrink-0 mt-0.5 transition-transform duration-200" :class="open === 2 ? 'rotate-180' : ''" style="color:#7c3aed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div x-show="open === 2" x-cloak x-transition class="px-4 sm:px-6 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed" style="background:#faf5ff">
-            Bisa! Caranya, kirim email ke <a href="mailto:xxxxx" class="font-medium underline underline-offset-2 hover:text-purple-600 transition-colors" style="color:#7c3aed">xxxxx</a> dengan subject: <strong class="text-gray-700">Mau Free Trial SpeakSpark</strong>. Tim kami akan aktifkan akses trial kamu dalam 1×24 jam.
+            Bisa! Caranya, kirim email ke <a href="mailto:hello@idnremote.com" class="font-medium underline underline-offset-2 hover:text-purple-600 transition-colors" style="color:#7c3aed">hello@idnremote.com</a> dengan subject: <strong class="text-gray-700">Mau Free Trial SpeakSpark</strong>. Tim kami akan aktifkan akses trial kamu dalam 1×24 jam.
           </div>
         </div>
 
@@ -619,56 +711,113 @@
     </div>
   </section>
 
-  <!-- FOOTER CTA -->
-  <section class="py-16 px-4" style="background:#0f0a1e">
-    <div class="max-w-sm mx-auto">
-      <div class="rounded-3xl px-8 py-12 text-center relative overflow-hidden" style="background:linear-gradient(160deg,#3b0764 0%,#6d28d9 40%,#7e1d6e 100%)">
-        <!-- subtle glow blobs -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(236,72,153,0.25) 0%,transparent 70%);filter:blur(24px)"></div>
-        <div class="absolute bottom-0 right-0 w-40 h-40 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(109,40,217,0.4) 0%,transparent 70%);filter:blur(20px)"></div>
+  <!-- FOOTER CTA — variant 1: rounded card (default) -->
+  <section id="footer-cta-v1" class="py-16 px-4" style="background:#0d0d14">
+    <div class="relative overflow-hidden rounded-3xl w-full max-w-lg mx-auto px-8 py-16 text-center" style="background:linear-gradient(135deg,#1a0533 0%,#4c1a8a 20%,#7c3aed 50%,#c026d3 75%,#be185d 100%);box-shadow:0 0 0 1px rgba(167,139,250,0.25),0 0 80px rgba(124,58,237,0.5),0 30px 80px rgba(192,38,211,0.35),inset 0 1px 0 rgba(255,255,255,0.1)">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-40 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(251,191,36,0.3) 0%,rgba(236,72,153,0.5) 40%,transparent 70%);filter:blur(32px)"></div>
+      <div class="absolute bottom-0 right-0 w-56 h-56 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(251,146,60,0.35) 0%,rgba(192,38,211,0.4) 50%,transparent 70%);filter:blur(28px)"></div>
+      <div class="absolute top-1/2 left-0 w-40 h-40 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(109,40,217,0.4) 0%,transparent 70%);filter:blur(20px)"></div>
 
-        <p class="text-xs font-bold tracking-[0.18em] uppercase mb-6" style="color:#f9a8d4;font-family:monospace">Mulai Sekarang · Cancel Kapan Aja</p>
+      <div class="relative">
+        <p class="text-xs font-bold tracking-[0.18em] uppercase mb-6" style="color:#fde68a;font-family:monospace;text-shadow:0 0 12px rgba(251,191,36,0.6)">✦ Mulai Sekarang</p>
 
         <h2 class="text-4xl font-black text-white leading-tight mb-10">
-          Jago English<br />dalam<br />30 Hari.
+          Jago English<br />Biar Bisa Kerja<br />di Luar Negeri
         </h2>
 
         <a href="https://goakal.com/idnremote/speakspark-premium" target="_blank" rel="noopener noreferrer"
            class="cta-gradient inline-block w-full py-4 rounded-2xl font-bold text-white text-lg mb-5">
-          Berlangganan →
+          Beli Sekarang →
         </a>
 
-        <p class="text-sm" style="color:rgba(255,255,255,0.4);font-family:monospace">Latihan via WhatsApp. Tanpa install aplikasi.</p>
+        <p class="text-sm" style="color:rgba(255,255,255,0.4);font-family:monospace">Latihan rutin via WhatsApp. Dapet feedback, didampingin mentor, sampai mentoring karir.</p>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER CTA — variant 2: full-width gradient -->
+  <section id="footer-cta-v2" class="relative overflow-hidden py-24 px-6 text-center" style="display:none;background:linear-gradient(135deg,#1a0533 0%,#4c1a8a 20%,#7c3aed 50%,#c026d3 75%,#be185d 100%)">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(251,191,36,0.28) 0%,rgba(236,72,153,0.5) 40%,transparent 70%);filter:blur(36px)"></div>
+    <div class="absolute bottom-0 right-0 w-64 h-64 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(251,146,60,0.3) 0%,rgba(192,38,211,0.45) 50%,transparent 70%);filter:blur(32px)"></div>
+    <div class="absolute top-1/2 left-0 w-48 h-48 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(109,40,217,0.4) 0%,transparent 70%);filter:blur(24px)"></div>
+
+    <div class="relative max-w-2xl mx-auto">
+      <p class="text-sm italic mb-6" style="color:rgba(255,255,255,0.65);font-family:Georgia,serif">
+        "Investasi terbaik adalah investasi pada dirimu sendiri."
+      </p>
+
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-10">
+        Waktumu untuk jago<br class="hidden md:block" /> bahasa Inggris
+      </h2>
+
+      <a href="https://goakal.com/idnremote/speakspark-premium" target="_blank" rel="noopener noreferrer"
+         class="cta-gradient inline-block w-full md:w-auto md:px-16 py-4 rounded-2xl font-bold text-white text-lg">
+        Beli Sekarang →
+      </a>
+    </div>
+  </section>
+
   <!-- FOOTER -->
-  <footer class="bg-gray-900 text-white py-10 px-4">
+  <footer style="background:#0d0d14" class="text-white pt-12 pb-8 px-4">
+    <!-- purple gradient divider -->
     <div class="max-w-4xl mx-auto">
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div class="h-px mb-10 rounded-full" style="background:linear-gradient(90deg,transparent,#7c3aed 40%,#ec4899 60%,transparent)"></div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+        <!-- Brand -->
+        <div class="col-span-2 md:col-span-1">
+          <img src="images/logo-speakspark.png" alt="SpeakSpark" class="h-8 w-auto brightness-0 invert mb-3" />
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Pelatih bahasa Inggris pribadimu di WhatsApp — latihan singkat, feedback langsung, tiap hari.</p>
+          <span class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full" style="background:rgba(124,58,237,0.15);color:#a78bfa">
+            ✦ 150+ anggota aktif
+          </span>
+        </div>
+
+        <!-- Navigasi -->
         <div>
-          <div class="mb-3">
-            <img src="images/logo-speakspark.png" alt="SpeakSpark" class="h-8 w-auto brightness-0 invert" />
+          <p class="text-xs font-bold tracking-widest uppercase mb-4" style="color:#6d28d9">Navigasi</p>
+          <ul class="flex flex-col gap-2.5 text-sm text-gray-400">
+            <li><a href="#cara-latihan" class="hover:text-white transition-colors">Cara Pakai</a></li>
+            <li><a href="#fitur" class="hover:text-white transition-colors">Pantau Progress</a></li>
+            <li><a href="#kenapa" class="hover:text-white transition-colors">Kenapa SpeakSpark</a></li>
+            <li><a href="#pricing" class="hover:text-white transition-colors">Harga</a></li>
+            <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Tautan -->
+        <div>
+          <p class="text-xs font-bold tracking-widest uppercase mb-4" style="color:#6d28d9">Tautan</p>
+          <ul class="flex flex-col gap-2.5 text-sm text-gray-400">
+            <li><a href="https://goakal.com/idnremote/speakspark-premium" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Beli Sekarang</a></li>
+            <li><a href="https://idnremote.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">IDNRemote.com</a></li>
+          </ul>
+        </div>
+
+        <!-- Kontak -->
+        <div>
+          <p class="text-xs font-bold tracking-widest uppercase mb-4" style="color:#6d28d9">Kontak</p>
+          <p class="text-gray-400 text-sm mb-3">Ada pertanyaan? Chat kami langsung.</p>
+          <div class="flex flex-col gap-2">
+            <a href="https://wa.me/6282125193560?text=Haloo.%20Mau%20tanya%20tentang%20SpeakSpark%20nih" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 text-sm font-semibold px-4 py-2.5 rounded-xl transition-colors"
+               style="background:rgba(37,211,102,0.12);color:#25d366;border:1px solid rgba(37,211,102,0.25)">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.849L.057 23.447a.5.5 0 0 0 .611.61l5.638-1.47A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 0 1-5.073-1.386l-.361-.214-3.754.978.999-3.648-.235-.374A9.958 9.958 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              +62 821-2519-3560
+            </a>
+            <a href="mailto:hello@idnremote.com"
+               class="inline-flex items-center gap-2 text-sm font-semibold px-4 py-2.5 rounded-xl transition-colors"
+               style="background:rgba(124,58,237,0.1);color:#a78bfa;border:1px solid rgba(124,58,237,0.2)">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              hello@idnremote.com
+            </a>
           </div>
-          <p class="text-gray-400 text-sm max-w-xs leading-relaxed">Bikin English kalian jago dengan SpeakSpark by IDNRemote.com. Siapin kerja remote kamu dengan latihan setiap hari</p>
-        </div>
-        <div class="flex flex-col gap-2 text-sm text-gray-400">
-          <a href="#cara-latihan" class="hover:text-white transition-colors">Cara Pakai</a>
-          <a href="#fitur" class="hover:text-white transition-colors">Pantau Progress</a>
-          <a href="#kenapa" class="hover:text-white transition-colors">Kenapa SpeakSpark</a>
-          <a href="#pricing" class="hover:text-white transition-colors">Harga</a>
-          <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
-          <a href="https://idnremote.com" class="hover:text-white transition-colors">IDNRemote.com</a>
-          <a href="https://goakal.com/idnremote/speakspark-premium" class="hover:text-white transition-colors">Berlangganan Premium</a>
-        </div>
-        <div class="text-sm text-gray-400">
-          <p class="mb-1">Ada pertanyaan?</p>
-          <a href="https://wa.me/6282125193560?text=Haloo.%20Mau%20tanya%20tentang%20SpeakSpark%20nih" target="_blank" rel="noopener noreferrer" class="transition-colors" style="color:#a78bfa">+62 821-2519-3560</a>
         </div>
       </div>
-      <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-500 text-sm">
-        © 2026 SpeakSpark by <a href="https://idnremote.com" target="_blank" rel="noopener noreferrer" class="hover:text-white underline underline-offset-2 transition-colors">IDNRemote.com</a>
+
+      <div class="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-gray-600 text-xs">
+        <span>© 2026 SpeakSpark by <a href="https://idnremote.com" target="_blank" rel="noopener noreferrer" class="hover:text-gray-400 underline underline-offset-2 transition-colors">IDNRemote.com</a></span>
+        <span>Dibuat untuk bantu kamu go international!</span>
       </div>
     </div>
   </footer>
@@ -678,21 +827,29 @@
     <div id="dev-panel" style="display:none;background:#1e1b2e;color:#e2e8f0;border-radius:16px;padding:16px;width:260px;box-shadow:0 8px 32px rgba(0,0,0,0.5);margin-bottom:8px;">
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#a78bfa;margin-bottom:8px;">Hero Headline</div>
       <div id="dev-headlines" style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px;"></div>
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#a78bfa;margin-bottom:8px;">CTA Button</div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#a78bfa;margin-bottom:8px;">Social Proof</div>
+      <div id="dev-sp" style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px;"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#a78bfa;margin-bottom:8px;">Footer CTA</div>
+      <div id="dev-footer-cta" style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px;"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#a78bfa;margin-bottom:8px;">Color Theme</div>
       <div id="dev-ctas" style="display:flex;flex-wrap:wrap;gap:4px;"></div>
     </div>
-    <button id="dev-toggle" onclick="(function(){var p=document.getElementById('dev-panel');p.style.display=p.style.display==='none'?'block':'none';})()" style="background:#1e1b2e;color:#a78bfa;border:1px solid #4c1d95;border-radius:999px;padding:6px 14px;cursor:pointer;font-family:monospace;font-size:12px;font-weight:700;">⚙ DEV</button>
+    <button id="dev-toggle" onclick="(function(){var p=document.getElementById('dev-panel');p.style.display=p.style.display==='none'?'block':'none';})()" style="background:#1e1b2e;color:#a78bfa;border:1px solid #4c1d95;border-radius:999px;padding:6px 14px;cursor:pointer;font-family:monospace;font-size:12px;font-weight:700;">⚙ A/B Variants</button>
   </div>
   <script>
     (function() {
       var params = new URLSearchParams(location.search);
       var curH = params.get('hero_headline') || '1';
       var curC = params.get('primary_button_cta') || '1';
+      var curSP = params.get('social_proof') || '1';
+      var curFC = params.get('footer_cta') || '1';
 
-      function go(h, c) {
+      function go(h, c, sp, fc) {
         var p = new URLSearchParams(location.search);
         p.set('hero_headline', h);
         p.set('primary_button_cta', c);
+        p.set('social_proof', sp);
+        p.set('footer_cta', fc);
         location.search = p.toString();
       }
 
@@ -700,21 +857,37 @@
         var b = document.createElement('button');
         b.textContent = label;
         b.onclick = onclick;
-        b.style.cssText = 'padding:3px 8px;border-radius:6px;border:1px solid ' + (active ? '#a78bfa' : '#4c1d95') + ';background:' + (active ? '#4c1d95' : 'transparent') + ';color:' + (active ? '#fff' : '#c4b5fd') + ';cursor:pointer;font-family:monospace;font-size:11px;';
+        b.style.cssText = 'padding:3px 8px;border-radius:6px;border:1px solid ' + (active ? '#fff' : '#3b1f6a') + ';background:' + (active ? '#fff' : 'transparent') + ';color:' + (active ? '#1e1b2e' : '#6b5fa0') + ';cursor:pointer;font-family:monospace;font-size:11px;';
         return b;
       }
 
       document.addEventListener('DOMContentLoaded', function() {
         var hWrap = document.getElementById('dev-headlines');
         var cWrap = document.getElementById('dev-ctas');
+        var headlineLabels = ['Lancar→Karir','Grogi?','Interview Dekat','Takut→Confident','15 Menit','Bukan Mimpi','Satu Kendala','Tiket Karir','Capek Lokal?','Ngomong Lancar'];
         for (var i = 1; i <= 10; i++) {
           (function(n) {
-            hWrap.appendChild(btn('H' + n, curH === String(n), function() { go(n, curC); }));
+            hWrap.appendChild(btn(headlineLabels[n-1], curH === String(n), function() { go(n, curC, curSP, curFC); }));
           })(i);
         }
+        var spWrap = document.getElementById('dev-sp');
+        var spLabels = ['Dark Glass', 'Live Pill', 'Hero Num', 'Dark Quote', 'Cards'];
+        for (var k = 1; k <= 5; k++) {
+          (function(n) {
+            spWrap.appendChild(btn(spLabels[n-1], curSP === String(n), function() { go(curH, curC, n, curFC); }));
+          })(k);
+        }
+        var fcWrap = document.getElementById('dev-footer-cta');
+        var fcLabels = ['Rounded Card', 'Full-Width'];
+        for (var f = 1; f <= 2; f++) {
+          (function(n) {
+            fcWrap.appendChild(btn(fcLabels[n-1], curFC === String(n), function() { go(curH, curC, curSP, n); }));
+          })(f);
+        }
+        var ctaLabels = ['Purple', 'Pink', 'Red', 'Blue', 'Green', 'White'];
         for (var j = 1; j <= 6; j++) {
           (function(n) {
-            cWrap.appendChild(btn('C' + n, curC === String(n), function() { go(curH, n); }));
+            cWrap.appendChild(btn(ctaLabels[n-1], curC === String(n), function() { go(curH, n, curSP, curFC); }));
           })(j);
         }
       });

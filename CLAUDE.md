@@ -48,7 +48,7 @@ The page has several items marked with `📸 SCREENSHOT PLACEHOLDER` comments th
 
 **Target:** Profesional Indonesia yang ingin kerja di luar negeri dan ingin jago bahasa Inggris, tapi punya kendala pada kemampuan bahasa Inggris mereka.
 
-**Hot market focus:** Orang yang sudah tahu mereka butuh improve English — langsung dorong ke "Berlangganan". Tidak perlu banyak edukasi, langsung ke action.
+**Hot market focus:** Orang yang sudah tahu mereka butuh improve English — langsung dorong ke "Beli". Tidak perlu banyak edukasi, langsung ke action. **Penting: gunakan kata "Beli" bukan "Berlangganan" di semua CTA.**
 
 **Social proof:** 150+ orang yang mau kerja di luar negeri sudah bergabung.
 
