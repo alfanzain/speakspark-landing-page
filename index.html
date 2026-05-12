@@ -114,21 +114,16 @@
     }
   </script>
   <script>
-    // Hero headline switcher — ?hero_headline=1..10
+    // Hero headline switcher — ?hero_headline=1..5
     (function() {
       var n = getVariantParam('hero_headline');
       if (!n || n === '1') return;
       var headlines = {
         '1': ['Bahasa Inggris Lancar', 'Karir Luar Negeri Terbuka'],
-        '2': ['Grogi Ngomong English?', 'Kita Latih Bareng Tiap Hari'],
-        '3': ['Interview Luar Negeri Makin Dekat.', 'English-mu Sudah Siap?'],
-        '4': ['Dari Takut Ngomong', 'ke Confident di Interview Global'],
-        '5': ['15 Menit Sehari.', 'Cukup untuk Jago English Kerja Remote'],
-        '6': ['Kerja di Luar Negeri Bukan Mimpi.', 'English-mu Bisa Sampai ke Sana'],
-        '7': ['Satu Kendala Menuju Luar Negeri:', 'Bahasa Inggris. Kita Selesaikan.'],
-        '8': ['Bahasa Inggris Kamu', 'Bisa Jadi Tiket Karir Global'],
-        '9': ['Capek Stuck di Lokal?', 'Tingkatkan English, Buka Pasar Global'],
-        '10': ['Ngomong English Lancar.', 'Kerja Luar Negeri Jadi Kenyataan'],
+        '2': ['Dari Takut Ngomong', 'ke Confident di Interview Global'],
+        '3': ['15 Menit Sehari.', 'Cukup untuk Jago English Kerja Remote'],
+        '4': ['Satu Kendala Menuju Luar Negeri:', 'Bahasa Inggris. Kita Selesaikan.'],
+        '5': ['Capek Stuck di Lokal?', 'Tingkatkan English, Buka Pasar Global'],
       };
       var h = headlines[n];
       if (!h) return;
@@ -194,7 +189,7 @@
         150+ profesional yang mau kerja di luar negeri sudah bergabung
       </div> -->
 
-      <h1 class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 tracking-tight mt-20">
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 tracking-tight mt-14">
         Bahasa Inggris Lancar<br /><span class="gradient-text">Karir Luar Negeri Terbuka</span>
       </h1>
 
@@ -448,7 +443,7 @@
           </div>
           <p class="text-gray-500 text-sm mb-6 mt-2 leading-relaxed">Cocok buat yang baru mulai dan ingin coba dulu manfaatnya</p>
           <ul class="flex flex-col gap-2 mb-8 text-sm text-gray-700">
-            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> <strong>60 hari</strong> akses semua latihan di SpeakSpark</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> <span class="font-bold whitespace-nowrap -mr-1">60 hari</span> akses semua latihan</li>
             <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Misi latihan rutin sesuai roadmap yang kamu butuhin</li>
             <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Feedback & skor tiap latihan</li>
             <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Pantau metrik progres</li>
@@ -516,7 +511,7 @@
             <svg class="w-5 h-5 shrink-0 mt-0.5 transition-transform duration-200" :class="open === 1 ? 'rotate-180' : ''" style="color:#7c3aed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div x-show="open === 1" x-cloak x-transition class="px-4 sm:px-6 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed" style="background:#faf5ff">
-            SpeakSpark adalah pelatih bahasa Inggris pribadi kamu yang beroperasi lewat WhatsApp. Setiap hari kamu dapat latihan singkat dan terstruktur — reading, listening, speaking, writing, dan pronunciation — lalu langsung dapat nilai dan feedback dari AI.
+            SpeakSpark adalah bot partner latihan English kamu yang beroperasi lewat WhatsApp. Setiap hari kamu diingatkan untuk latihan, lalu kamu submit latihan harianmu — tulis paragraf, rekam suara, atau jawab pertanyaan — langsung via WhatsApp. Jawabanmu direview oleh tim mentor, dan kamu bisa track progress sendiri. Seperti latihan sama teman yang memang sudah jago English, tapi lebih tahu kebutuhan latihanmu yang tepat.
           </div>
         </div>
 
@@ -691,8 +686,8 @@
 
       document.addEventListener('DOMContentLoaded', function() {
         var hWrap = document.getElementById('dev-headlines');
-        var headlineLabels = ['Lancar→Karir','Grogi?','Interview Dekat','Takut→Confident','15 Menit','Bukan Mimpi','Satu Kendala','Tiket Karir','Capek Lokal?','Ngomong Lancar'];
-        for (var i = 1; i <= 10; i++) {
+        var headlineLabels = ['Lancar→Karir','Takut→Confident','15 Menit','Satu Kendala','Capek Lokal?'];
+        for (var i = 1; i <= 5; i++) {
           (function(n) {
             hWrap.appendChild(btn(headlineLabels[n-1], curH === String(n), function() { go(n); }));
           })(i);

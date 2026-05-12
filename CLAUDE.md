@@ -62,21 +62,20 @@ HTML tailwind. if need js, use alpinejs
 
 Mobile first
 
-Inspiration: Fluently app, Blotato (hero structure: social proof pill → bold outcome headline → CTAs → product screenshot)
+Inspiration: Blotato
 
 Context:
 
 What is Speak Spark?
 
-SpeakSpark adalah pelatih bahasa Inggris pribadi kamu di WhatsApp. Setiap hari kamu akan dapat latihan singkat dan terstruktur — mulai dari membaca nyaring, menyimak dan mentranskrip, menulis
+Seperti yang sudah kamu tahu, cara kita jadi jago English adalah dengan merutinkannya setiap hari. Tapi ngebangun rutinitas itu nggak mudah kan ya?
 
-cerita pendek, sampai ngobrol spontan dalam bahasa Inggris — lalu langsung dapat nilai dan feedback-nya. Cara pakainya cukup balas pesan dengan angka untuk pilih latihan, terus kerjakan.
+Nah karena itulah kami dari tim mentor PJI sudah membuatkan sebuah bot yang akan jadi partner kamu dalam latihan English. Selain membantu ngingetin buat latihan, bot ini juga tempat di mana kamu submit latihan-latihan harian English kamu yang akan direview oleh tim mentor. Jadi selain tim mentor yang pantau, kamu sendiri pun bisa track progress kamu sendiri.
 
-Latihan singkat setiap hari. Feedback langsung dari AI. Tanpa install aplikasi, tanpa ikut kelas. Cukup buka WhatsApp dan mulai berlatih.
+Bot partner ini kami namain SpeakSpark. Kami pilih nama ini karena kami berharap dengan adanya bot ini kamu jadi muncul semangat ("spark") buat enjoy ketika speak English.
 
-Bahasa: Bahasa Indonesia
-CTA utama: Link ke checkout/pembelian GoAkal
-Section untuk pembeli: Cara mulai (quick start), Shortcut buka WhatsApp
-Sections: Lengkap + pricing
+Untuk saat ini akses bot ini baru tersedia lewat WhatsApp, jadi kamu submit latihan harian, diingetin, dan berlatih tiap hari via WhatsApp. Beneran kayak latihan English sama teman kamu aja, tapi bedanya kamu latihan sama orang-orang yang memang sudah jago komunikasi English, jadi lebih tahu kebutuhan latihan yang lebih tepat seperti apa.
+
+Kamu bisa nemuin link untuk akses SpeakSpark di LMS-nya GoAkal (Binder) ketika kamu beli kelas privat ini. 😉
 
 Speak Spark main color is purple
