@@ -34,18 +34,6 @@
   </script>
   <style>
     [x-cloak] { display: none !important; }
-    @keyframes marquee-left {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    @keyframes marquee-right {
-      0%   { transform: translateX(-50%); }
-      100% { transform: translateX(0); }
-    }
-    .marquee-track-left  { animation: marquee-left  36s linear infinite; }
-    .marquee-track-right { animation: marquee-right 28s linear infinite; }
-    .marquee-track-left:hover,
-    .marquee-track-right:hover { animation-play-state: paused; }
     html { scroll-behavior: smooth; }
     .gradient-hero { background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #9333ea 100%); }
     .gradient-text { background: linear-gradient(135deg, #c084fc, #f3e8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -524,68 +512,89 @@
   </section>
 
   <!-- What People Say -->
-  <section id="reviews" class="py-16 px-4 bg-white">
+  <section id="reviews" class="py-16 px-4" style="background:#f8f7ff">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-10">
         <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">Testimoni</span>
         <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">What People Say</h2>
       </div>
 
-      <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+      <div class="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
 
-        <div class="break-inside-avoid rounded-2xl p-5 border flex flex-col gap-3 mb-4" style="border-color:#e9d5ff;background:#faf5ff">
-          <p class="text-gray-700 text-sm leading-relaxed">"Banyak jenis exercise dan bisa pilih mau exercise yang mana. Ini penting karena saat kita pengen improve di bagian tertentu, kita bisa pilih exercise yang cocok.<br /><br />Exercise-nya juga ngikutin best practice belajar bahasa Inggris — ada shadowing, ada pronunciation, ada writing.<br /><br />Feedback dalam bentuk PDF-nya ringkas dan mudah dipahami.<br /><br />Event rutin rabu dan sabtu malam juga sangat membantu. Cakep pokoknya."</p>
-          <div class="pt-3 border-t" style="border-color:#e9d5ff">
-            <p class="font-semibold text-gray-900 text-sm">Alvin</p>
-            <p class="text-gray-400 text-xs">Senior Software Engineer · Banten</p>
+        <div class="break-inside-avoid rounded-2xl bg-white p-6 flex flex-col gap-3 mb-5" style="box-shadow:0 2px 16px rgba(124,58,237,0.08)">
+          <div class="text-5xl font-black leading-none -mb-1" style="color:#ede9fe">"</div>
+          <p class="text-gray-600 text-sm leading-relaxed">Banyak jenis exercise dan bisa pilih mau exercise yang mana. Ini penting karena saat kita pengen improve di bagian tertentu, kita bisa pilih exercise yang cocok.<br /><br />Exercise-nya juga ngikutin best practice belajar bahasa Inggris — ada shadowing, ada pronunciation, ada writing.<br /><br />Feedback dalam bentuk PDF-nya ringkas dan mudah dipahami.<br /><br />Event rutin rabu dan sabtu malam juga sangat membantu. Cakep pokoknya.</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+            <div>
+              <p class="font-semibold text-gray-900 text-sm leading-tight">Alvin</p>
+              <p class="text-gray-400 text-xs">Senior Software Engineer · Banten</p>
+            </div>
           </div>
         </div>
 
-        <div class="break-inside-avoid rounded-2xl p-5 border flex flex-col gap-3 mb-4" style="border-color:#e9d5ff;background:#faf5ff">
-          <p class="text-gray-700 text-sm leading-relaxed">"Lumayan berasa perubahannya. Kemarin itu sempet ada momen pas lagi interview saya nggak tau vocab yang tepat untuk ngebales, tapi langsung otomatis switch pake vocab yang paling simpel. Dan alhamdulillahnya interviewernya ngerti."</p>
-          <div class="pt-3 border-t" style="border-color:#e9d5ff">
-            <p class="font-semibold text-gray-900 text-sm">Zulfikar</p>
-            <p class="text-gray-400 text-xs">Full Stack Engineer · West Java</p>
+        <div class="break-inside-avoid rounded-2xl bg-white p-6 flex flex-col gap-3 mb-5" style="box-shadow:0 2px 16px rgba(124,58,237,0.08)">
+          <div class="text-5xl font-black leading-none -mb-1" style="color:#ede9fe">"</div>
+          <p class="text-gray-600 text-sm leading-relaxed">Lumayan berasa perubahannya. Kemarin itu sempet ada momen pas lagi interview saya nggak tau vocab yang tepat untuk ngebales, tapi langsung otomatis switch pake vocab yang paling simpel. Dan alhamdulillahnya interviewernya ngerti.</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+            <div>
+              <p class="font-semibold text-gray-900 text-sm leading-tight">Zulfikar</p>
+              <p class="text-gray-400 text-xs">Full Stack Engineer · West Java</p>
+            </div>
           </div>
         </div>
 
-        <div class="break-inside-avoid rounded-2xl p-5 border flex flex-col gap-3 mb-4" style="border-color:#e9d5ff;background:#faf5ff">
-          <p class="text-gray-700 text-sm leading-relaxed">"70% saya sudah pede speaking. Alhamdulillah juga saya dalam seminggu sudah 2 kali ngobrol dengan client Turkey. Dan sama-sama paham, saya sudah banyak paham apa yang client sampaikan, dan client juga mulai paham apa yang saya sampaikan walaupun grammar dan penyusunan kalimat masih perlu banyak di-improve."</p>
-          <div class="pt-3 border-t" style="border-color:#e9d5ff">
-            <p class="font-semibold text-gray-900 text-sm">Rizky</p>
-            <p class="text-gray-400 text-xs">Backend Engineer · Sumatra Utara</p>
+        <div class="break-inside-avoid rounded-2xl bg-white p-6 flex flex-col gap-3 mb-5" style="box-shadow:0 2px 16px rgba(124,58,237,0.08)">
+          <div class="text-5xl font-black leading-none -mb-1" style="color:#ede9fe">"</div>
+          <p class="text-gray-600 text-sm leading-relaxed">70% saya sudah pede speaking. Alhamdulillah juga saya dalam seminggu sudah 2 kali ngobrol dengan client Turkey. Dan sama-sama paham, saya sudah banyak paham apa yang client sampaikan, dan client juga mulai paham apa yang saya sampaikan walaupun grammar dan penyusunan kalimat masih perlu banyak di-improve.</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+            <div>
+              <p class="font-semibold text-gray-900 text-sm leading-tight">Rizky</p>
+              <p class="text-gray-400 text-xs">Backend Engineer · Sumatra Utara</p>
+            </div>
           </div>
         </div>
 
-        <div class="break-inside-avoid rounded-2xl p-5 border flex flex-col gap-3 mb-4" style="border-color:#e9d5ff;background:#faf5ff">
-          <p class="text-gray-700 text-sm leading-relaxed">"So far so good. Pas lupa ngerjain, ada remindernya. Ada career coachingnya juga sangat membantu dan memotivasi."</p>
-          <div class="pt-3 border-t" style="border-color:#e9d5ff">
-            <p class="font-semibold text-gray-900 text-sm">Septian</p>
-            <p class="text-gray-400 text-xs">Frontend Developer · West Java</p>
+        <div class="break-inside-avoid rounded-2xl bg-white p-6 flex flex-col gap-3 mb-5" style="box-shadow:0 2px 16px rgba(124,58,237,0.08)">
+          <div class="text-5xl font-black leading-none -mb-1" style="color:#ede9fe">"</div>
+          <p class="text-gray-600 text-sm leading-relaxed">So far so good. Pas lupa ngerjain, ada remindernya. Ada career coachingnya juga sangat membantu dan memotivasi.</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+            <div>
+              <p class="font-semibold text-gray-900 text-sm leading-tight">Septian</p>
+              <p class="text-gray-400 text-xs">Frontend Developer · West Java</p>
+            </div>
           </div>
         </div>
 
-        <div class="break-inside-avoid rounded-2xl p-5 border flex flex-col gap-3 mb-4" style="border-color:#e9d5ff;background:#faf5ff">
-          <p class="text-gray-700 text-sm leading-relaxed">"So far menyenangkan sih. SpeakSpark cukup mudah dipakai. Bonfire meeting juga sangat membantu kalau mau ngobrol-ngobrol sama orang secara langsung."</p>
-          <div class="pt-3 border-t" style="border-color:#e9d5ff">
-            <p class="font-semibold text-gray-900 text-sm">Bimo</p>
-            <p class="text-gray-400 text-xs">Android Engineer · Yogyakarta</p>
+        <div class="break-inside-avoid rounded-2xl bg-white p-6 flex flex-col gap-3 mb-5" style="box-shadow:0 2px 16px rgba(124,58,237,0.08)">
+          <div class="text-5xl font-black leading-none -mb-1" style="color:#ede9fe">"</div>
+          <p class="text-gray-600 text-sm leading-relaxed">So far menyenangkan sih. SpeakSpark cukup mudah dipakai. Bonfire meeting juga sangat membantu kalau mau ngobrol-ngobrol sama orang secara langsung.</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+            <div>
+              <p class="font-semibold text-gray-900 text-sm leading-tight">Bimo</p>
+              <p class="text-gray-400 text-xs">Android Engineer · Yogyakarta</p>
+            </div>
           </div>
         </div>
 
-        <div class="break-inside-avoid rounded-2xl p-5 border flex flex-col gap-3 mb-4" style="border-color:#e9d5ff;background:#faf5ff">
-          <p class="text-gray-700 text-sm leading-relaxed">"Sangat membantu boost skill English saya. Karena dipaksa buat terus practice"</p>
-          <div class="pt-3 border-t" style="border-color:#e9d5ff">
-            <p class="font-semibold text-gray-900 text-sm">Willy</p>
-            <p class="text-gray-400 text-xs">Backend Enginner & Tech Lead · Yogyakarta</p>
+        <div class="break-inside-avoid rounded-2xl bg-white p-6 flex flex-col gap-3 mb-5" style="box-shadow:0 2px 16px rgba(124,58,237,0.08)">
+          <div class="text-5xl font-black leading-none -mb-1" style="color:#ede9fe">"</div>
+          <p class="text-gray-600 text-sm leading-relaxed">Sangat membantu boost skill English saya. Karena dipaksa buat terus practice.</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+            <div>
+              <p class="font-semibold text-gray-900 text-sm leading-tight">Willy</p>
+              <p class="text-gray-400 text-xs">Backend Engineer & Tech Lead · Yogyakarta</p>
+            </div>
           </div>
         </div>
 
-        <div class="break-inside-avoid rounded-2xl p-5 border flex flex-col gap-3 mb-4" style="border-color:#e9d5ff;background:#faf5ff">
-          <p class="text-gray-700 text-sm leading-relaxed">"Alhamdulillah so far seru dan ngerasa cocok dengan cara belajarnya, tiap hari ada latihan secara lisan yang di mana sebelumnya itu belum pernah saya lakuin.<br /><br /> Terus untuk bot AI-nya juga udah cukup bagus banget, jujur pas latihan2 di awal itu kaget amaze sama bot-nya karena bisa secepet itu ngasih respon beserta feedback-nya."</p>
-          <div class="pt-3 border-t" style="border-color:#e9d5ff">
-            <p class="font-semibold text-gray-900 text-sm">Abdul Malik</p>
-            <p class="text-gray-400 text-xs">Frontend Engineer · West Java</p>
+        <div class="break-inside-avoid rounded-2xl bg-white p-6 flex flex-col gap-3 mb-5" style="box-shadow:0 2px 16px rgba(124,58,237,0.08)">
+          <div class="text-5xl font-black leading-none -mb-1" style="color:#ede9fe">"</div>
+          <p class="text-gray-600 text-sm leading-relaxed">Alhamdulillah so far seru dan ngerasa cocok dengan cara belajarnya, tiap hari ada latihan secara lisan yang di mana sebelumnya itu belum pernah saya lakuin.<br /><br />Terus untuk bot AI-nya juga udah cukup bagus banget, jujur pas latihan2 di awal itu kaget amaze sama bot-nya karena bisa secepet itu ngasih respon beserta feedback-nya.</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+            <div>
+              <p class="font-semibold text-gray-900 text-sm leading-tight">Abdul Malik</p>
+              <p class="text-gray-400 text-xs">Frontend Engineer · West Java</p>
+            </div>
           </div>
         </div>
 
