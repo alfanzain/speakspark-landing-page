@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -180,7 +180,7 @@
       <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
         <a href="#cara-latihan" class="hover:text-purple-700 transition-colors">Cara Pakai</a>
         <a href="#fitur" class="hover:text-purple-700 transition-colors">Pantau Progress</a>
-        <a href="#kenapa" class="hover:text-purple-700 transition-colors">Kenapa SpeakSpark</a>
+        <!-- <a href="#kenapa" class="hover:text-purple-700 transition-colors">Kenapa SpeakSpark</a> -->
         <a href="#pricing" class="hover:text-purple-700 transition-colors">Harga</a>
         <a href="#faq" class="hover:text-purple-700 transition-colors">FAQ</a>
         <a href="https://idnremote.com" class="hover:text-purple-700 transition-colors">IDNRemote.com</a>
@@ -199,7 +199,7 @@
     <div x-show="open" x-cloak x-transition class="md:hidden border-t border-purple-50 bg-white px-4 py-3 flex flex-col gap-3 text-sm font-medium">
       <a href="#cara-latihan" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">Cara Pakai</a>
       <a href="#fitur" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">Pantau Progress</a>
-      <a href="#kenapa" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">Kenapa SpeakSpark</a>
+      <!-- <a href="#kenapa" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">Kenapa SpeakSpark</a> -->
       <a href="#pricing" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">Harga</a>
       <a href="#faq" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">FAQ</a>
       <a href="https://idnremote.com" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">IDNRemote.com</a>
@@ -234,7 +234,7 @@
       </p>
 
       <div class="flex flex-col gap-3 justify-center items-center mb-12 w-full max-w-sm mx-auto">
-        <a href="#pricing" class="cta-gradient w-full text-white px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center">
+        <a href="#pricing" class="cta-gradient w-full px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center">
           Beli Sekarang →
         </a>
         <a href="#cara-latihan" class="cta-secondary w-full px-8 py-4 rounded-2xl font-semibold text-lg flex items-center justify-center gap-2" style="color:rgba(255,255,255,0.65)">
@@ -484,7 +484,7 @@
             <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> 1 on 1 video call mentoring sepuasnya</li>
             <li class="flex items-center gap-2"><span class="text-pink-300">✓</span> Sesi gathering speaking English</li>
           </ul>
-          <a href="https://goakal.com/idnremote/speakspark-premium/baqoh/apply" target="_blank" rel="noopener noreferrer" class="cta-gradient mt-auto w-full text-center py-3.5 rounded-2xl font-bold text-base text-white">
+          <a href="https://goakal.com/idnremote/speakspark-premium/baqoh/apply" target="_blank" rel="noopener noreferrer" class="cta-gradient mt-auto w-full text-center py-3.5 rounded-2xl font-bold text-base">
             Pilih Paket Ini →
           </a>
         </div>
@@ -511,9 +511,79 @@
     </div>
   </section>
 
+  <!-- What People Say -->
+  <section id="reviews" class="py-16 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">Testimoni</span>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">What People Say</h2>
+      </div>
+
+      <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+
+        <div class="break-inside-avoid rounded-2xl p-5 border flex flex-col gap-3 mb-4" style="border-color:#e9d5ff;background:#faf5ff">
+          <p class="text-gray-700 text-sm leading-relaxed">"Banyak jenis exercise dan bisa pilih mau exercise yang mana. Ini penting karena saat kita pengen improve di bagian tertentu, kita bisa pilih exercise yang cocok.<br /><br />Exercise-nya juga ngikutin best practice belajar bahasa Inggris — ada shadowing, ada pronunciation, ada writing.<br /><br />Feedback dalam bentuk PDF-nya ringkas dan mudah dipahami.<br /><br />Event rutin rabu dan sabtu malam juga sangat membantu. Cakep pokoknya."</p>
+          <div class="pt-3 border-t" style="border-color:#e9d5ff">
+            <p class="font-semibold text-gray-900 text-sm">Alvin</p>
+            <p class="text-gray-400 text-xs">Senior Software Engineer · Banten</p>
+          </div>
+        </div>
+
+        <div class="break-inside-avoid rounded-2xl p-5 border flex flex-col gap-3 mb-4" style="border-color:#e9d5ff;background:#faf5ff">
+          <p class="text-gray-700 text-sm leading-relaxed">"Lumayan berasa perubahannya. Kemarin itu sempet ada momen pas lagi interview saya nggak tau vocab yang tepat untuk ngebales, tapi langsung otomatis switch pake vocab yang paling simpel. Dan alhamdulillahnya interviewernya ngerti."</p>
+          <div class="pt-3 border-t" style="border-color:#e9d5ff">
+            <p class="font-semibold text-gray-900 text-sm">Zulfikar</p>
+            <p class="text-gray-400 text-xs">Full Stack Engineer · West Java</p>
+          </div>
+        </div>
+
+        <div class="break-inside-avoid rounded-2xl p-5 border flex flex-col gap-3 mb-4" style="border-color:#e9d5ff;background:#faf5ff">
+          <p class="text-gray-700 text-sm leading-relaxed">"70% saya sudah pede speaking. Alhamdulillah juga saya dalam seminggu sudah 2 kali ngobrol dengan client Turkey. Dan sama-sama paham, saya sudah banyak paham apa yang client sampaikan, dan client juga mulai paham apa yang saya sampaikan walaupun grammar dan penyusunan kalimat masih perlu banyak di-improve."</p>
+          <div class="pt-3 border-t" style="border-color:#e9d5ff">
+            <p class="font-semibold text-gray-900 text-sm">Rizky</p>
+            <p class="text-gray-400 text-xs">Backend Engineer · Sumatra Utara</p>
+          </div>
+        </div>
+
+        <div class="break-inside-avoid rounded-2xl p-5 border flex flex-col gap-3 mb-4" style="border-color:#e9d5ff;background:#faf5ff">
+          <p class="text-gray-700 text-sm leading-relaxed">"So far so good. Pas lupa ngerjain, ada remindernya. Ada career coachingnya juga sangat membantu dan memotivasi."</p>
+          <div class="pt-3 border-t" style="border-color:#e9d5ff">
+            <p class="font-semibold text-gray-900 text-sm">Septian</p>
+            <p class="text-gray-400 text-xs">Frontend Developer · West Java</p>
+          </div>
+        </div>
+
+        <div class="break-inside-avoid rounded-2xl p-5 border flex flex-col gap-3 mb-4" style="border-color:#e9d5ff;background:#faf5ff">
+          <p class="text-gray-700 text-sm leading-relaxed">"So far menyenangkan sih. SpeakSpark cukup mudah dipakai. Bonfire meeting juga sangat membantu kalau mau ngobrol-ngobrol sama orang secara langsung."</p>
+          <div class="pt-3 border-t" style="border-color:#e9d5ff">
+            <p class="font-semibold text-gray-900 text-sm">Bimo</p>
+            <p class="text-gray-400 text-xs">Android Engineer · Yogyakarta</p>
+          </div>
+        </div>
+
+        <div class="break-inside-avoid rounded-2xl p-5 border flex flex-col gap-3 mb-4" style="border-color:#e9d5ff;background:#faf5ff">
+          <p class="text-gray-700 text-sm leading-relaxed">"Sangat membantu boost skill English saya. Karena dipaksa buat terus practice"</p>
+          <div class="pt-3 border-t" style="border-color:#e9d5ff">
+            <p class="font-semibold text-gray-900 text-sm">Willy</p>
+            <p class="text-gray-400 text-xs">Backend Enginner & Tech Lead · Yogyakarta</p>
+          </div>
+        </div>
+
+        <div class="break-inside-avoid rounded-2xl p-5 border flex flex-col gap-3 mb-4" style="border-color:#e9d5ff;background:#faf5ff">
+          <p class="text-gray-700 text-sm leading-relaxed">"Alhamdulillah so far seru dan ngerasa cocok dengan cara belajarnya, tiap hari ada latihan secara lisan yang di mana sebelumnya itu belum pernah saya lakuin.<br /><br /> Terus untuk bot AI-nya juga udah cukup bagus banget, jujur pas latihan2 di awal itu kaget amaze sama bot-nya karena bisa secepet itu ngasih respon beserta feedback-nya."</p>
+          <div class="pt-3 border-t" style="border-color:#e9d5ff">
+            <p class="font-semibold text-gray-900 text-sm">Abdul Malik</p>
+            <p class="text-gray-400 text-xs">Frontend Engineer · West Java</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section id="faq" class="py-16 px-4" style="background:linear-gradient(to bottom,white,#faf5ff)">
-    <div class="max-w-2xl mx-auto">
+    <div class="max-w-3xl mx-auto">
       <div class="text-center mb-10">
         <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">FAQ</span>
         <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Pertanyaan yang Sering Ditanya</h2>
@@ -523,11 +593,18 @@
 
         <div class="rounded-2xl border overflow-hidden" style="border-color:#e9d5ff">
           <button @click="open = open === 1 ? null : 1" class="w-full flex items-start gap-3 justify-between px-4 sm:px-6 py-4 sm:py-5 text-left font-semibold text-gray-900 hover:bg-purple-50 transition-colors">
-            <span class="min-w-0">Apa itu SpeakSpark?</span>
+            <span class="min-w-0">Gimana cara latihan di SpeakSpark?</span>
             <svg class="w-5 h-5 shrink-0 mt-0.5 transition-transform duration-200" :class="open === 1 ? 'rotate-180' : ''" style="color:#7c3aed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div x-show="open === 1" x-cloak x-transition class="px-4 sm:px-6 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed" style="background:#faf5ff">
-            SpeakSpark adalah bot partner latihan English kamu yang beroperasi lewat WhatsApp. Setiap hari kamu diingatkan untuk latihan, lalu kamu submit latihan harianmu — tulis paragraf, rekam suara, atau jawab pertanyaan — langsung via WhatsApp. Jawabanmu direview oleh tim mentor, dan kamu bisa track progress sendiri. Seperti latihan sama teman yang memang sudah jago English, tapi lebih tahu kebutuhan latihanmu yang tepat.
+          <div :class="open === 1 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'" class="grid transition-all duration-300 ease-in-out">
+            <div class="overflow-hidden">
+              <div class="px-4 sm:px-6 pt-3 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed border-t" style="border-color:#e9d5ff">
+                Gampang banget! Setelah beli, kamu akan dapat akses ke SpeakSpark dengan link yang kamu bakal kamu dapetin melalui email. Nanti kamu harus melakukan asessment test terlebih dahulu untuk menentukan level dan skor English kamu. Setelah itu, etiap hari bot akan kirim latihan yang sesuai dengan yang kamu butuhkan.
+                <br />
+                <br />
+                Kamu tinggal kerjain dan kirim jawaban langsung di chat. Bot langsung kasih feedback dan skor. Tim mentor juga pantau progress kamu.
+              </div>
+            </div>
           </div>
         </div>
 
@@ -536,8 +613,15 @@
             <span class="min-w-0">Bisa free trial?</span>
             <svg class="w-5 h-5 shrink-0 mt-0.5 transition-transform duration-200" :class="open === 2 ? 'rotate-180' : ''" style="color:#7c3aed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div x-show="open === 2" x-cloak x-transition class="px-4 sm:px-6 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed" style="background:#faf5ff">
-            Bisa! Caranya, kirim email ke <a href="mailto:hello@idnremote.com" class="font-medium underline underline-offset-2 hover:text-purple-600 transition-colors" style="color:#7c3aed">hello@idnremote.com</a> dengan subject: <strong class="text-gray-700">Mau Free Trial SpeakSpark</strong>. Tim kami akan aktifkan akses trial kamu dalam 1×24 jam.
+          <div :class="open === 2 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'" class="grid transition-all duration-300 ease-in-out">
+            <div class="overflow-hidden">
+              <div class="px-4 sm:px-6 pt-3 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed border-t" style="border-color:#e9d5ff">
+                Bisa! Caranya, kirim email ke <a href="mailto:hello@idnremote.com" class="font-medium underline underline-offset-2 hover:text-purple-600 transition-colors" style="color:#7c3aed">hello@idnremote.com</a> dengan subject: <strong class="text-gray-700">Mau Free Trial SpeakSpark</strong>.
+                <br />
+                <br />
+                Tim kami akan aktifkan akses trial kamu dalam 1×24 jam.
+              </div>
+            </div>
           </div>
         </div>
 
@@ -546,8 +630,12 @@
             <span class="min-w-0">Harus install aplikasi baru?</span>
             <svg class="w-5 h-5 shrink-0 mt-0.5 transition-transform duration-200" :class="open === 3 ? 'rotate-180' : ''" style="color:#7c3aed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div x-show="open === 3" x-cloak x-transition class="px-4 sm:px-6 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed" style="background:#faf5ff">
-            Tidak perlu. SpeakSpark berjalan sepenuhnya lewat WhatsApp yang sudah kamu punya. Cukup simpan nomor SpeakSpark, lalu chat seperti biasa — latihan bisa langsung dimulai.
+          <div :class="open === 3 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'" class="grid transition-all duration-300 ease-in-out">
+            <div class="overflow-hidden">
+              <div class="px-4 sm:px-6 pt-3 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed border-t" style="border-color:#e9d5ff">
+                Tidak perlu. SpeakSpark berjalan sepenuhnya lewat WhatsApp yang sudah kamu punya.
+              </div>
+            </div>
           </div>
         </div>
 
@@ -556,18 +644,63 @@
             <span class="min-w-0">Skill apa saja yang dilatih?</span>
             <svg class="w-5 h-5 shrink-0 mt-0.5 transition-transform duration-200" :class="open === 5 ? 'rotate-180' : ''" style="color:#7c3aed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div x-show="open === 5" x-cloak x-transition class="px-4 sm:px-6 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed" style="background:#faf5ff">
-            Ada 5 skill yang dilatih dan diukur: <strong class="text-gray-700">Reading Comprehension, Listening Comprehension, Pronunciation, Comprehensibility,</strong> dan <strong class="text-gray-700">Fluency</strong>. Tiap latihan menghasilkan skor di metrik yang relevan biar kamu tahu persis di mana masih perlu improvement.
+          <div :class="open === 5 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'" class="grid transition-all duration-300 ease-in-out">
+            <div class="overflow-hidden">
+              <div class="px-4 sm:px-6 pt-3 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed border-t" style="border-color:#e9d5ff">
+                Ada 5 skill yang dilatih dan diukur: <strong class="text-gray-700">Reading Comprehension, Listening Comprehension, Pronunciation, Comprehensibility,</strong> dan <strong class="text-gray-700">Fluency</strong>. Tiap latihan menghasilkan skor di metrik yang relevan biar kamu tahu persis di mana masih perlu improvement.
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="rounded-2xl border overflow-hidden" style="border-color:#e9d5ff">
           <button @click="open = open === 6 ? null : 6" class="w-full flex items-start gap-3 justify-between px-4 sm:px-6 py-4 sm:py-5 text-left font-semibold text-gray-900 hover:bg-purple-50 transition-colors">
-            <span class="min-w-0">Cocok untuk level English seperti apa?</span>
+            <span class="min-w-0">Apakah cocok buat pemula yang English masih pas-pasan?</span>
             <svg class="w-5 h-5 shrink-0 mt-0.5 transition-transform duration-200" :class="open === 6 ? 'rotate-180' : ''" style="color:#7c3aed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div x-show="open === 6" x-cloak x-transition class="px-4 sm:px-6 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed" style="background:#faf5ff">
-            SpeakSpark cocok untuk level menengah ke atas — kamu sudah bisa baca dan paham English dasar, tapi masih belum percaya diri saat speaking atau butuh improve fluency untuk keperluan kerja, terutama interview dan komunikasi di lingkungan kerja internasional.
+          <div :class="open === 6 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'" class="grid transition-all duration-300 ease-in-out">
+            <div class="overflow-hidden">
+              <div class="px-4 sm:px-6 pt-3 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed border-t" style="border-color:#e9d5ff">
+                <strong>SANGAT COCOK!</strong> Malah ini waktu terbaik buat upgrade. <br /><br />Bahkan dengan SpeakSpark Premium, kamu bakal latihan English buat bisa lancar komunikasi, nggak seserem English akademik kok!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border overflow-hidden" style="border-color:#e9d5ff">
+          <button @click="open = open === 11 ? null : 11" class="w-full flex items-start gap-3 justify-between px-4 sm:px-6 py-4 sm:py-5 text-left font-semibold text-gray-900 hover:bg-purple-50 transition-colors">
+            <span class="min-w-0">Konsultasi belajar tuh kayak gimana?</span>
+            <svg class="w-5 h-5 shrink-0 mt-0.5 transition-transform duration-200" :class="open === 11 ? 'rotate-180' : ''" style="color:#7c3aed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div :class="open === 11 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'" class="grid transition-all duration-300 ease-in-out">
+            <div class="overflow-hidden">
+              <div class="px-4 sm:px-6 pt-3 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed border-t" style="border-color:#e9d5ff">
+                Selama masa premium masih aktif, kamu bisa request konsultasi langsung dengan <strong class="text-gray-700">mentor beneran</strong> (bukan AI) yang sudah berpengalaman kerja remote di perusahaan luar negeri.<br /><br />
+                Bisa via:<br />
+                👉🏼 <strong class="text-gray-700">DM mentor di WhatsApp</strong><br />
+                👉🏼 <strong class="text-gray-700">Video call Google Meet</strong> (weekdays)<br /><br />
+                Cara requestnya gampang:<br />
+                1. DM mentor atau SpeakSpark untuk request jadwal<br />
+                2. Kasih tahu topik yang ingin dikonsultasikan<br />
+                3. Tinggal datang sesuai jadwal — simpel!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border overflow-hidden" style="border-color:#e9d5ff">
+          <button @click="open = open === 12 ? null : 12" class="w-full flex items-start gap-3 justify-between px-4 sm:px-6 py-4 sm:py-5 text-left font-semibold text-gray-900 hover:bg-purple-50 transition-colors">
+            <span class="min-w-0">English gathering session itu ngapain sih?</span>
+            <svg class="w-5 h-5 shrink-0 mt-0.5 transition-transform duration-200" :class="open === 12 ? 'rotate-180' : ''" style="color:#7c3aed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div :class="open === 12 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'" class="grid transition-all duration-300 ease-in-out">
+            <div class="overflow-hidden">
+              <div class="px-4 sm:px-6 pt-3 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed border-t" style="border-color:#e9d5ff">
+                Sesi ini buat <strong class="text-gray-700">praktek speaking English</strong> bareng sesama member — santai, nggak ada yang nge-judge atau nyalahin. Formatnya ngobrol kasual dengan topik bebas atau topik terpilih, persis kayak meetup biasa.<br /><br />
+                📅 <strong class="text-gray-700">Setiap Rabu & Sabtu, jam 20:00–21:00 WIB</strong><br /><br />
+                Optional, tapi highly recommended — ini kesempatan terbaik buat langsung praktek speaking sama sesama member dan mentor.
+              </div>
+            </div>
           </div>
         </div>
 
@@ -576,14 +709,15 @@
             <span class="min-w-0">Bagaimana cara bayarnya?</span>
             <svg class="w-5 h-5 shrink-0 mt-0.5 transition-transform duration-200" :class="open === 8 ? 'rotate-180' : ''" style="color:#7c3aed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div x-show="open === 8" x-cloak x-transition class="px-4 sm:px-6 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed" style="background:#faf5ff">
-            Pembayaran dilakukan melalui platform GoAkal.
+          <div :class="open === 8 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'" class="grid transition-all duration-300 ease-in-out">
+            <div class="overflow-hidden">
+              <div class="px-4 sm:px-6 pt-3 pb-4 sm:pb-5 text-gray-500 text-sm leading-relaxed border-t" style="border-color:#e9d5ff">
+                Pembayaran dilakukan melalui platform GoAkal.
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
-
-      <p class="text-center text-gray-400 text-sm mt-8">Masih ada pertanyaan? <a href="https://wa.me/6282125193560?text=Haloo.%20Mau%20tanya%20tentang%20SpeakSpark%20nih" target="_blank" rel="noopener noreferrer" class="underline hover:text-purple-600 transition-colors" style="color:#7c3aed">Chat kami langsung di WhatsApp</a></p>
     </div>
   </section>
 
@@ -603,7 +737,7 @@
       </h2>
 
       <a href="#pricing"
-         class="cta-gradient inline-block w-full md:w-auto md:px-16 py-4 rounded-2xl font-bold text-white text-lg">
+         class="cta-gradient inline-block w-full md:w-auto md:px-16 py-4 rounded-2xl font-bold text-lg">
         Beli Sekarang →
       </a>
     </div>
@@ -631,7 +765,7 @@
           <ul class="flex flex-col gap-2.5 text-sm text-gray-400">
             <li><a href="#cara-latihan" class="hover:text-white transition-colors">Cara Pakai</a></li>
             <li><a href="#fitur" class="hover:text-white transition-colors">Pantau Progress</a></li>
-            <li><a href="#kenapa" class="hover:text-white transition-colors">Kenapa SpeakSpark</a></li>
+            <!-- <li><a href="#kenapa" class="hover:text-white transition-colors">Kenapa SpeakSpark</a></li> -->
             <li><a href="#pricing" class="hover:text-white transition-colors">Harga</a></li>
             <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
           </ul>
