@@ -122,6 +122,31 @@
       });
     })();
   </script>
+  <script>
+    // Hero headline switcher — ?hero_headline=1..10
+    (function() {
+      var n = new URLSearchParams(location.search).get('hero_headline');
+      if (!n || n === '1') return;
+      var headlines = {
+        '1': ['Bahasa Inggris Lancar', 'Karir Luar Negeri Terbuka'],
+        '2': ['Grogi Ngomong English?', 'Kita Latih Bareng Tiap Hari'],
+        '3': ['Interview Luar Negeri Makin Dekat.', 'English-mu Sudah Siap?'],
+        '4': ['Dari Takut Ngomong', 'ke Confident di Interview Global'],
+        '5': ['15 Menit Sehari.', 'Cukup untuk Jago English Kerja Remote'],
+        '6': ['Kerja di Luar Negeri Bukan Mimpi.', 'English-mu Bisa Sampai ke Sana'],
+        '7': ['Satu Kendala Menuju Luar Negeri:', 'Bahasa Inggris. Kita Selesaikan.'],
+        '8': ['Bahasa Inggris Kamu', 'Bisa Jadi Tiket Karir Global'],
+        '9': ['Capek Stuck di Lokal?', 'Tingkatkan English, Buka Pasar Global'],
+        '10': ['Ngomong English Lancar.', 'Kerja Luar Negeri Jadi Kenyataan'],
+      };
+      var h = headlines[n];
+      if (!h) return;
+      document.addEventListener('DOMContentLoaded', function() {
+        var el = document.querySelector('h1');
+        if (el) el.innerHTML = h[0] + '<br /><span class="gradient-text">' + h[1] + '</span>';
+      });
+    })();
+  </script>
 </head>
 <body class="font-sans bg-white text-gray-900 antialiased">
   <!-- NAVBAR -->
@@ -346,6 +371,54 @@
       </div>
     </div>
   </footer>
+
+  <!-- DEV TOOLBAR -->
+  <div id="dev-toolbar" style="position:fixed;bottom:16px;right:16px;z-index:9999;font-family:monospace;font-size:12px;">
+    <div id="dev-panel" style="display:none;background:#1e1b2e;color:#e2e8f0;border-radius:16px;padding:16px;width:260px;box-shadow:0 8px 32px rgba(0,0,0,0.5);margin-bottom:8px;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#a78bfa;margin-bottom:8px;">Hero Headline</div>
+      <div id="dev-headlines" style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px;"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#a78bfa;margin-bottom:8px;">CTA Button</div>
+      <div id="dev-ctas" style="display:flex;flex-wrap:wrap;gap:4px;"></div>
+    </div>
+    <button id="dev-toggle" onclick="(function(){var p=document.getElementById('dev-panel');p.style.display=p.style.display==='none'?'block':'none';})()" style="background:#1e1b2e;color:#a78bfa;border:1px solid #4c1d95;border-radius:999px;padding:6px 14px;cursor:pointer;font-family:monospace;font-size:12px;font-weight:700;">⚙ DEV</button>
+  </div>
+  <script>
+    (function() {
+      var params = new URLSearchParams(location.search);
+      var curH = params.get('hero_headline') || '1';
+      var curC = params.get('primary_button_cta') || '1';
+
+      function go(h, c) {
+        var p = new URLSearchParams(location.search);
+        p.set('hero_headline', h);
+        p.set('primary_button_cta', c);
+        location.search = p.toString();
+      }
+
+      function btn(label, active, onclick) {
+        var b = document.createElement('button');
+        b.textContent = label;
+        b.onclick = onclick;
+        b.style.cssText = 'padding:3px 8px;border-radius:6px;border:1px solid ' + (active ? '#a78bfa' : '#4c1d95') + ';background:' + (active ? '#4c1d95' : 'transparent') + ';color:' + (active ? '#fff' : '#c4b5fd') + ';cursor:pointer;font-family:monospace;font-size:11px;';
+        return b;
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var hWrap = document.getElementById('dev-headlines');
+        var cWrap = document.getElementById('dev-ctas');
+        for (var i = 1; i <= 10; i++) {
+          (function(n) {
+            hWrap.appendChild(btn('H' + n, curH === String(n), function() { go(n, curC); }));
+          })(i);
+        }
+        for (var j = 1; j <= 6; j++) {
+          (function(n) {
+            cWrap.appendChild(btn('C' + n, curC === String(n), function() { go(curH, n); }));
+          })(j);
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>
