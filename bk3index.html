@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpeakSpark Premium — Mastering English untuk Kerja Remote</title>
+  <meta name="description" content="Latihan English tanpa arah itu melelahkan. Di SpeakSpark Premium, semuanya udah disiapin: roadmap, skor, dan mentor AI yang siap bantu kalau kamu stuck." />
+
+  <!-- Open Graph (untuk preview saat link dishare di WA, IG, dll) -->
+  <meta property="og:title" content="SpeakSpark Premium by IDNRemote.com — Jago English untuk Kerja Remote" />
+  <meta property="og:description" content="Latihan English tanpa arah itu melelahkan. Di SpeakSpark Premium, semuanya udah disiapin: roadmap, skor, dan mentor AI yang siap bantu kalau kamu stuck!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://speakspark.id" />
+  <!-- 📸 SCREENSHOT PLACEHOLDER #1: og:image
+       Ganti src di bawah dengan gambar preview landing page (1200x630px).
+       Ini yang muncul sebagai thumbnail saat link dishare di WA/IG/Twitter.
+       Rekomendasi: screenshot hero section + logo, background purple. -->
+  <meta property="og:image" content="https://akalstorageaccount1.blob.core.windows.net/akalcontainer1/idnremote/Tbfzkfg6GN8XvoCpQ6rS3" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html { scroll-behavior: smooth; }
+    .gradient-hero { background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #9333ea 100%); }
+    .gradient-text { background: linear-gradient(135deg, #c084fc, #f3e8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15); }
+    .wa-btn { background: linear-gradient(135deg, #25D366, #128C7E); }
+    .wa-btn:hover { background: linear-gradient(135deg, #20b858, #0d7060); }
+    .pulse-ring { animation: pulse-ring 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; }
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+      70% { box-shadow: 0 0 0 14px rgba(255,255,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    }
+    /* Placeholder screenshot styling — hapus setelah gambar asli dipasang */
+    .ss-placeholder {
+      border: 2px dashed #a78bfa;
+      background: #faf5ff;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: #7c3aed;
+      font-size: 0.85rem;
+    }
+    .ss-placeholder .ss-label {
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: #ede9fe;
+      color: #6d28d9;
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body class="font-sans bg-white text-gray-900 antialiased">
+
+  <!-- ======================================================
+       FLOATING BUTTON — muncul setelah scroll, khusus pembeli
+       ====================================================== -->
+  <div
+    x-data="{ show: false }"
+    @scroll.window="show = window.scrollY > 500"
+    x-show="show"
+    x-cloak
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0 translate-y-3"
+    x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 translate-y-0"
+    x-transition:leave-end="opacity-0 translate-y-3"
+    class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none"
+    style="width:max-content"
+  >
+    <a href="https://goakal.com/idnremote/speakspark-premium" class="pointer-events-auto inline-flex items-center gap-2 text-white text-sm font-bold px-5 py-3 rounded-full shadow-xl" style="background:linear-gradient(135deg,#7c3aed,#9333ea);box-shadow:0 6px 20px rgba(124,58,237,0.4)">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+      Berlangganan Premium
+    </a>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-purple-100 shadow-sm" x-data="{ open: false }">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center">
+        <img src="images/logo-speakspark.png" alt="SpeakSpark" class="h-12 w-auto" />
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
+        <a href="#cara-latihan" class="hover:text-purple-700 transition-colors">Cara Pakai</a>
+        <a href="#fitur" class="hover:text-purple-700 transition-colors">Fitur</a>
+        <a href="#harga" class="hover:text-purple-700 transition-colors">Harga</a>
+        <a href="#faq" class="hover:text-purple-700 transition-colors">FAQ</a>
+        <a href="https://goakal.com/idnremote/speakspark-premium" class="text-white px-4 py-2 rounded-full font-semibold transition-colors flex items-center gap-1.5" style="background:#7c3aed">
+          <span>Berlangganan</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <button @click="open = !open" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-purple-50">
+        <svg x-show="!open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg x-show="open" x-cloak class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div x-show="open" x-cloak x-transition class="md:hidden border-t border-purple-50 bg-white px-4 py-3 flex flex-col gap-3 text-sm font-medium">
+      <a href="#cara-latihan" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">Cara Pakai</a>
+      <a href="#fitur" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">Fitur</a>
+      <a href="#harga" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">Harga</a>
+      <a href="#faq" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">FAQ</a>
+      <a href="https://goakal.com/idnremote/speakspark-premium" @click="open=false" class="text-white px-4 py-2.5 rounded-xl font-semibold text-center" style="background:#7c3aed">Berlangganan Premium →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="gradient-hero text-white pt-16 pb-0 px-4 overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-80 h-80 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" style="background:rgba(167,139,250,0.18)"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" style="background:rgba(76,29,149,0.3)"></div>
+    <!-- Wave top decoration -->
+    <div class="absolute top-0 left-0 w-full pointer-events-none overflow-hidden" style="height:80px">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="absolute top-0 left-0 w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 L0,0 Z" fill="rgba(255,255,255,0.06)"/>
+        <path d="M0,55 C200,20 400,70 720,45 C1000,20 1250,65 1440,50 L1440,0 L0,0 Z" fill="rgba(255,255,255,0.04)"/>
+      </svg>
+    </div>
+
+    <div class="max-w-3xl mx-auto text-center relative z-10">
+      <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-medium mb-8 border" style="background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.2)">
+        <span>💬</span>
+        <span>Jago Bahasa Inggris · Langsung di WhatsApp</span>
+      </div>
+
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 tracking-tight">
+        English Kamu Belum Siap Buat <span class="gradient-text">Kerja Remote?</span>
+      </h1>
+
+      <p class="text-sm md:text-base mb-10 max-w-xl mx-auto leading-relaxed" style="color:#e9d5ff">
+        Latihan tiap hari, ada roadmap,<br />dapet feedback, bisa tau progresmu<br /><span class="text-white font-bold">sampai kamu beneran jago dan siap kerja remote</span>
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-12">
+        <a href="#cara-latihan" class="pulse-ring w-full sm:w-auto bg-white hover:bg-purple-50 transition-colors px-8 py-4 rounded-2xl font-bold text-lg shadow-xl flex items-center justify-center gap-2" style="color:#6d28d9">
+          <span>Lihat Cara Pakainya</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="https://goakal.com/idnremote/speakspark-premium" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto border-2 hover:bg-white/10 transition-colors px-8 py-4 rounded-2xl font-bold text-lg text-white flex items-center justify-center gap-2" style="border-color:rgba(255,255,255,0.4)">
+          <span>Berlangganan Premium</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+      </div>
+
+      <div class="max-w-[300px] mx-auto w-full relative z-10 mb-[-220px]">
+        <!-- Purple glow that bleeds into white section -->
+        <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 w-64 h-24 rounded-full pointer-events-none" style="background:radial-gradient(ellipse, rgba(139,92,246,0.35) 0%, transparent 70%);filter:blur(20px);z-index:-1"></div>
+        <img src="images/hero-screenshot-speakspark.png" alt="SpeakSpark Premium di WhatsApp" class="w-full rounded-[2.5rem]" style="box-shadow:0 20px 40px rgba(0,0,0,0.2), 0 8px 24px rgba(109,40,217,0.15)" />
+      </div>
+    </div>
+
+    <!-- Wave bottom — transitions hero into white section -->
+    <div class="absolute bottom-0 left-0 w-full pointer-events-none overflow-hidden" style="height:100px;z-index:5">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C240,90 480,10 720,50 C960,90 1200,20 1440,55 L1440,100 L0,100 Z" fill="white"/>
+        <path d="M0,50 C200,10 500,80 800,40 C1050,10 1280,70 1440,45 L1440,100 L0,100 Z" fill="rgba(255,255,255,0.5)"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- CARA LATIHAN -->
+  <section id="cara-latihan" class="py-16 px-4 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">Semudah chatting di WA</span>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Begini Cara Latihannya</h2>
+        <p class="text-gray-500 mt-3 max-w-lg mx-auto">Cukup balas pesan. Nggak perlu login, nggak perlu install aplikasi baru</p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="card-hover rounded-3xl p-6 border" style="background:#faf5ff;border-color:#e9d5ff">
+          <div class="w-14 h-14 rounded-2xl gradient-hero text-white font-black text-2xl flex items-center justify-center mb-4" style="box-shadow:0 8px 20px rgba(124,58,237,0.3)">1</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Buka WhatsApp</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Chat ke nomor SpeakSpark. Kamu akan langsung dapat menu latihan.</p>
+          <!-- 📸 SCREENSHOT PLACEHOLDER — step 1: WhatsApp chat opening / contact screen -->
+          <div class="ss-placeholder mt-4 rounded-2xl overflow-hidden border border-dashed" style="border-color:#c4b5fd;background:#ede9fe;min-height:140px">
+            <div class="flex flex-col items-center justify-center h-full py-8 gap-2 text-purple-400">
+              <svg class="w-8 h-8 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span class="text-xs font-medium opacity-60">Screenshot: buka chat WA</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-hover rounded-3xl p-6 border" style="background:#faf5ff;border-color:#e9d5ff">
+          <div class="w-14 h-14 rounded-2xl gradient-hero text-white font-black text-2xl flex items-center justify-center mb-4" style="box-shadow:0 8px 20px rgba(124,58,237,0.3)">2</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Pilih Jenis Latihan</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Balas dengan angka sesuai menu — mau melatih skill reading, listening, atau langsung mau latihan percakapan.</p>
+          <!-- 📸 SCREENSHOT PLACEHOLDER — step 2: WhatsApp menu with numbered options -->
+          <div class="ss-placeholder mt-4 rounded-2xl overflow-hidden border border-dashed" style="border-color:#c4b5fd;background:#ede9fe;min-height:140px">
+            <div class="flex flex-col items-center justify-center h-full py-8 gap-2 text-purple-400">
+              <svg class="w-8 h-8 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span class="text-xs font-medium opacity-60">Screenshot: menu pilihan latihan</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-hover rounded-3xl p-6 border" style="background:#faf5ff;border-color:#e9d5ff">
+          <div class="w-14 h-14 rounded-2xl gradient-hero text-white font-black text-2xl flex items-center justify-center mb-4" style="box-shadow:0 8px 20px rgba(124,58,237,0.3)">3</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Kerjakan Latihannya</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Ikuti instruksi SpeakSpark. Tulis paragraf, rekam suara, jawab pertanyaan, atau rekam video.</p>
+          <!-- 📸 SCREENSHOT PLACEHOLDER — step 3: WhatsApp exercise in progress (user reply) -->
+          <div class="ss-placeholder mt-4 rounded-2xl overflow-hidden border border-dashed" style="border-color:#c4b5fd;background:#ede9fe;min-height:140px">
+            <div class="flex flex-col items-center justify-center h-full py-8 gap-2 text-purple-400">
+              <svg class="w-8 h-8 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span class="text-xs font-medium opacity-60">Screenshot: mengerjakan latihan</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-hover rounded-3xl p-6 border" style="background:#faf5ff;border-color:#e9d5ff">
+          <div class="w-14 h-14 rounded-2xl gradient-hero text-white font-black text-2xl flex items-center justify-center mb-4" style="box-shadow:0 8px 20px rgba(124,58,237,0.3)">4</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Dapat Nilai & Feedback</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Kirim jawabanmu — SpeakSpark akan langsung balas dengan feedback dan skor buat asah skill English kamu biar lebih jago!</p>
+          <!-- 📸 SCREENSHOT PLACEHOLDER — step 4: WhatsApp AI reply with score and feedback -->
+          <div class="ss-placeholder mt-4 rounded-2xl overflow-hidden border border-dashed" style="border-color:#c4b5fd;background:#ede9fe;min-height:140px">
+            <div class="flex flex-col items-center justify-center h-full py-8 gap-2 text-purple-400">
+              <svg class="w-8 h-8 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span class="text-xs font-medium opacity-60">Screenshot: nilai & feedback dari AI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRIK / SKOR -->
+  <section id="fitur" class="py-16 px-4" style="background:linear-gradient(to bottom, #faf5ff, white)">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">Pantau Progresmu</span>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Skor Nyata, Progres Terukur</h2>
+        <p class="text-gray-500 mt-3 max-w-lg mx-auto">Tiap latihan menghasilkan skor di 5 metrik — biar kamu tahu persis di mana sudah bagus dan di mana masih perlu digas</p>
+      </div>
+
+      <div class="flex flex-col gap-4">
+
+        <div class="bg-white rounded-2xl border p-5 flex gap-4 items-start" style="border-color:#e9d5ff;box-shadow:0 2px 12px rgba(124,58,237,0.06)">
+          <div class="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-xl" style="background:#f3e8ff">📖</div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <h3 class="font-bold text-gray-900">Reading Comprehension</h3>
+            </div>
+            <p class="text-gray-500 text-sm leading-relaxed">Seberapa baik kamu memahami isi teks yang dibaca. Bukan sekadar bisa baca, tapi ngerti maknanya.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border p-5 flex gap-4 items-start" style="border-color:#e9d5ff;box-shadow:0 2px 12px rgba(124,58,237,0.06)">
+          <div class="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-xl" style="background:#f3e8ff">👂</div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <h3 class="font-bold text-gray-900">Listening Comprehension</h3>
+            </div>
+            <p class="text-gray-500 text-sm leading-relaxed">Seberapa akurat kamu menangkap apa yang diucapkan dan memahaminya.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border p-5 flex gap-4 items-start" style="border-color:#e9d5ff;box-shadow:0 2px 12px rgba(124,58,237,0.06)">
+          <div class="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-xl" style="background:#f3e8ff">🗣️</div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <h3 class="font-bold text-gray-900">Pronunciation</h3>
+            </div>
+            <p class="text-gray-500 text-sm leading-relaxed">Seberapa tepat cara kamu mengucapkan kata-kata English.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border p-5 flex gap-4 items-start" style="border-color:#e9d5ff;box-shadow:0 2px 12px rgba(124,58,237,0.06)">
+          <div class="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-xl" style="background:#f3e8ff">💡</div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <h3 class="font-bold text-gray-900">Comprehensibility</h3>
+            </div>
+            <p class="text-gray-500 text-sm leading-relaxed">Seberapa mudah orang lain memahami ucapanmu.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border p-5 flex gap-4 items-start" style="border-color:#e9d5ff;box-shadow:0 2px 12px rgba(124,58,237,0.06)">
+          <div class="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-xl" style="background:#f3e8ff">⚡</div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <h3 class="font-bold text-gray-900">Fluency</h3>
+            </div>
+            <p class="text-gray-500 text-sm leading-relaxed">Seberapa lancar kamu berbicara. Sedikit jeda panjang, tidak terbata-bata, ritme yang natural seperti native speaker.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="py-14 px-4 gradient-hero text-white text-center">
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-black mb-4">Upgrade ke SpeakSpark Premium</h2>
+      <p class="mb-8 text-lg" style="color:#e9d5ff">Roadmap siap. Skor tiap latihan. Didampingin mentor kalau stuck. Nggak perlu install apapun — yuk mulai aja hari ini.</p>
+      <a href="https://goakal.com/idnremote/speakspark-premium" class="inline-flex items-center gap-2 bg-white hover:bg-purple-50 px-8 py-4 rounded-2xl font-bold text-lg shadow-xl transition-colors" style="color:#6d28d9">
+        Ya, Saya Mau Jago English!
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <!-- <footer class="bg-gray-900 text-white py-10 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div>
+          <div class="mb-3">
+            <img src="images/logo-speakspark.png" alt="SpeakSpark" class="h-8 w-auto brightness-0 invert" />
+          </div>
+          <p class="text-gray-400 text-sm max-w-xs leading-relaxed">Mastering English untuk kerja remote, dari IDNRemote.com. Roadmap, skor, dan mentor AI — langsung di WhatsApp.</p>
+        </div>
+        <div class="flex flex-col gap-2 text-sm text-gray-400">
+          <a href="#cara-kerja" class="hover:text-white transition-colors">Cara Kerja</a>
+          <a href="#fitur" class="hover:text-white transition-colors">Fitur Latihan</a>
+          <a href="#harga" class="hover:text-white transition-colors">Harga</a>
+          <a href="#mulai" class="hover:text-white transition-colors">Sudah Beli?</a>
+        </div>
+        <div class="text-sm text-gray-400">
+          <p class="mb-1">Ada pertanyaan?</p>
+          <a href="mailto:hello@speakspark.id" class="transition-colors" style="color:#a78bfa">hello@speakspark.id</a>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-500 text-sm">
+        © 2025 SpeakSpark. Hak cipta dilindungi.
+      </div>
+    </div>
+  </footer> -->
+
+</body>
+</html>

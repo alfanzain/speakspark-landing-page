@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpeakSpark — Pelatih Bahasa Inggris Pribadi di WhatsApp</title>
+  <meta name="description" content="Latihan tiap hari sampai bisa jago komunikasi in English buat kerja remote" />
+
+  <!-- Open Graph (untuk preview saat link dishare di WA, IG, dll) -->
+  <meta property="og:title" content="SpeakSpark by IDNRemote.com— Pelatih Bahasa Inggris di WhatsApp" />
+  <meta property="og:description" content="Latihan tiap hari sampai bisa jago komunikasi in English buat kerja remote" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://speakspark.id" />
+  <!-- 📸 SCREENSHOT PLACEHOLDER #1: og:image
+       Ganti src di bawah dengan gambar preview landing page (1200x630px).
+       Ini yang muncul sebagai thumbnail saat link dishare di WA/IG/Twitter.
+       Rekomendasi: screenshot hero section + logo, background purple. -->
+  <meta property="og:image" content="https://placehold.co/1200x630/7c3aed/ffffff?text=SpeakSpark" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html { scroll-behavior: smooth; }
+    .gradient-hero { background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #9333ea 100%); }
+    .gradient-text { background: linear-gradient(135deg, #c084fc, #f3e8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15); }
+    .wa-btn { background: linear-gradient(135deg, #25D366, #128C7E); }
+    .wa-btn:hover { background: linear-gradient(135deg, #20b858, #0d7060); }
+    .pulse-ring { animation: pulse-ring 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; }
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+      70% { box-shadow: 0 0 0 14px rgba(255,255,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    }
+    /* Placeholder screenshot styling — hapus setelah gambar asli dipasang */
+    .ss-placeholder {
+      border: 2px dashed #a78bfa;
+      background: #faf5ff;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: #7c3aed;
+      font-size: 0.85rem;
+    }
+    .ss-placeholder .ss-label {
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: #ede9fe;
+      color: #6d28d9;
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body class="font-sans bg-white text-gray-900 antialiased">
+
+  <!-- ======================================================
+       FLOATING BUTTON — muncul setelah scroll, khusus pembeli
+       ====================================================== -->
+  <div
+    x-data="{ show: false }"
+    @scroll.window="show = window.scrollY > 500"
+    x-show="show"
+    x-cloak
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0 translate-y-3"
+    x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 translate-y-0"
+    x-transition:leave-end="opacity-0 translate-y-3"
+    class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none"
+    style="width:max-content"
+  >
+    <a href="#mulai" class="wa-btn pointer-events-auto inline-flex items-center gap-2 text-white text-sm font-bold px-5 py-3 rounded-full shadow-xl" style="box-shadow:0 6px 20px rgba(37,211,102,0.4)">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Sudah beli? Mulai di sini
+    </a>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-purple-100 shadow-sm" x-data="{ open: false }">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center">
+        <img src="images/logo-speakspark.png" alt="SpeakSpark" class="h-12 w-auto" />
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
+        <a href="#cara-kerja" class="hover:text-purple-700 transition-colors">Cara Kerja</a>
+        <a href="#fitur" class="hover:text-purple-700 transition-colors">Fitur</a>
+        <a href="#harga" class="hover:text-purple-700 transition-colors">Harga</a>
+        <a href="#faq" class="hover:text-purple-700 transition-colors">FAQ</a>
+        <a href="#mulai" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full font-semibold transition-colors flex items-center gap-1.5">
+          <span>Sudah Beli?</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <button @click="open = !open" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-purple-50">
+        <svg x-show="!open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg x-show="open" x-cloak class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div x-show="open" x-cloak x-transition class="md:hidden border-t border-purple-50 bg-white px-4 py-3 flex flex-col gap-3 text-sm font-medium">
+      <a href="#cara-kerja" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">Cara Kerja</a>
+      <a href="#fitur" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">Fitur</a>
+      <a href="#harga" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">Harga</a>
+      <a href="#faq" @click="open=false" class="text-gray-700 hover:text-purple-700 py-1">FAQ</a>
+      <a href="#mulai" @click="open=false" class="wa-btn text-white px-4 py-2.5 rounded-xl font-semibold text-center">Sudah Beli? Mulai di sini →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="gradient-hero text-white pt-16 pb-20 px-4 overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-80 h-80 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" style="background:rgba(167,139,250,0.18)"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" style="background:rgba(76,29,149,0.3)"></div>
+
+    <div class="max-w-3xl mx-auto text-center relative z-10">
+      <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-medium mb-8 border" style="background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.2)">
+        <span>💬</span>
+        <span>Langsung di WhatsApp · Tanpa install apapun</span>
+      </div>
+
+      <!-- H1: pain-point led, lalu pivot ke solusi -->
+      <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6 tracking-tight">
+        Latihan Bahasa Inggris<br/>
+        yang <span class="gradient-text">Beneran Bikin</span><br/>
+        <span class="gradient-text">Progress</span>
+      </h1>
+
+      <!-- Subtext: akui masalah, lalu tawarkan solusi -->
+      <p class="text-lg md:text-xl mb-10 max-w-xl mx-auto leading-relaxed" style="color:#e9d5ff">
+        Kebanyakan orang gagal bukan karena kurang pintar — tapi karena tidak konsisten. SpeakSpark kirim latihan singkat ke WhatsApp kamu setiap hari, lengkap dengan feedback AI yang langsung, bukan besok.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-12">
+        <a href="https://goakal.com/speakspark" class="pulse-ring w-full sm:w-auto bg-white hover:bg-purple-50 transition-colors px-8 py-4 rounded-2xl font-bold text-lg shadow-xl flex items-center justify-center gap-2" style="color:#6d28d9">
+          <span>Mulai Latihan Pertamaku</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="#mulai" class="wa-btn w-full sm:w-auto text-white px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-2">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span>Sudah Beli? Mulai →</span>
+        </a>
+      </div>
+
+      <!-- Chat mockup -->
+      <div class="max-w-sm mx-auto rounded-3xl p-4 text-left shadow-2xl border" style="background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.2)">
+        <div class="flex items-center gap-3 pb-3 mb-3" style="border-bottom:1px solid rgba(255,255,255,0.2)">
+          <div class="w-10 h-10 rounded-full gradient-hero border-2 flex items-center justify-center font-black text-sm" style="border-color:rgba(255,255,255,0.5)">S</div>
+          <div>
+            <p class="font-semibold text-sm">SpeakSpark</p>
+            <p class="text-xs" style="color:#d8b4fe">Pelatih Bahasa Inggris · Online</p>
+          </div>
+          <div class="ml-auto w-2 h-2 rounded-full bg-green-400"></div>
+        </div>
+        <div class="space-y-2 text-sm">
+          <div class="rounded-2xl rounded-tl-sm px-3 py-2.5 max-w-xs" style="background:rgba(255,255,255,0.15)">
+            <p>Selamat datang! 👋 Pilih latihan hari ini:</p>
+            <p class="mt-1.5 text-xs leading-relaxed" style="color:#e9d5ff">1️⃣ Membaca Nyaring<br/>2️⃣ Menyimak<br/>3️⃣ Menulis<br/>4️⃣ Ngobrol</p>
+          </div>
+          <div class="rounded-2xl rounded-tr-sm px-3 py-2 max-w-xs ml-auto text-right font-semibold" style="background:white;color:#6d28d9">2</div>
+          <div class="rounded-2xl rounded-tl-sm px-3 py-2.5 max-w-xs" style="background:rgba(255,255,255,0.15)">
+            <p>Oke! Dengarkan audio ini dan tulis apa yang kamu dengar 🎧</p>
+            <div class="mt-2 flex items-center gap-2 rounded-xl px-2 py-1.5" style="background:rgba(255,255,255,0.1)">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <div class="flex-1 h-1 rounded-full" style="background:rgba(255,255,255,0.3)"><div class="h-full w-1/3 rounded-full bg-white"></div></div>
+              <span class="text-xs" style="color:#e9d5ff">0:08</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARA KERJA -->
+  <section id="cara-kerja" class="py-16 px-4 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">Sesederhana ini</span>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Cara Mulai Latihan</h2>
+        <p class="text-gray-500 mt-3 max-w-lg mx-auto">Tidak ada pendaftaran ribet. Tidak perlu download. Cukup tiga langkah.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card-hover rounded-3xl p-6 text-center border" style="background:#faf5ff;border-color:#e9d5ff">
+          <div class="w-14 h-14 rounded-2xl gradient-hero text-white font-black text-2xl flex items-center justify-center mx-auto mb-4" style="box-shadow:0 8px 20px rgba(124,58,237,0.3)">1</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Beli Paket</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Pilih paket SpeakSpark di GoAkal. Proses cepat, langsung aktif.</p>
+        </div>
+        <div class="card-hover rounded-3xl p-6 text-center border" style="background:#faf5ff;border-color:#e9d5ff">
+          <div class="w-14 h-14 rounded-2xl gradient-hero text-white font-black text-2xl flex items-center justify-center mx-auto mb-4" style="box-shadow:0 8px 20px rgba(124,58,237,0.3)">2</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Daftar via WhatsApp</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Kirim pesan pertama ke nomor SpeakSpark. Kamu langsung terhubung dengan pelatih AI.</p>
+        </div>
+        <div class="card-hover rounded-3xl p-6 text-center border" style="background:#faf5ff;border-color:#e9d5ff">
+          <div class="w-14 h-14 rounded-2xl gradient-hero text-white font-black text-2xl flex items-center justify-center mx-auto mb-4" style="box-shadow:0 8px 20px rgba(124,58,237,0.3)">3</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Latihan Tiap Hari</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Pilih latihan, kerjakan, dan langsung dapat nilai serta feedback dari AI. Singkat tapi efektif.</p>
+        </div>
+      </div>
+      <div class="text-center mt-8">
+        <a href="https://goakal.com/speakspark" class="inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-2xl font-bold transition-colors" style="background:#7c3aed;box-shadow:0 8px 20px rgba(124,58,237,0.25)">
+          Mulai Latihan Pertamaku
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- JENIS LATIHAN -->
+  <section id="fitur" class="py-16 px-4" style="background:linear-gradient(to bottom, #faf5ff, white)">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">4 Tipe Latihan</span>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Lengkap untuk Semua Skill</h2>
+        <p class="text-gray-500 mt-3 max-w-lg mx-auto">Setiap hari kamu bisa pilih jenis latihan yang berbeda — biar belajarnya tidak monoton.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div class="card-hover bg-white rounded-3xl p-6 border" style="border-color:#e9d5ff;box-shadow:0 2px 8px rgba(124,58,237,0.06)">
+          <div class="text-4xl mb-4">🎙️</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Membaca Nyaring</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Baca teks dalam bahasa Inggris, kirim rekaman suaramu, dan langsung dapat skor serta feedback pronunciation dari AI.</p>
+          <div class="mt-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold" style="background:#f3e8ff;color:#7c3aed">🎯 Pronunciation & Fluency</div>
+        </div>
+        <div class="card-hover bg-white rounded-3xl p-6 border" style="border-color:#e9d5ff;box-shadow:0 2px 8px rgba(124,58,237,0.06)">
+          <div class="text-4xl mb-4">👂</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Menyimak & Transkripsi</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Dengarkan audio berbahasa Inggris, lalu tulis apa yang kamu dengar. Tajamkan kemampuan listening sekaligus spelling.</p>
+          <div class="mt-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold" style="background:#f3e8ff;color:#7c3aed">👂 Listening & Spelling</div>
+        </div>
+        <div class="card-hover bg-white rounded-3xl p-6 border" style="border-color:#e9d5ff;box-shadow:0 2px 8px rgba(124,58,237,0.06)">
+          <div class="text-4xl mb-4">✍️</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Menulis Cerita</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Tulis paragraf singkat berdasarkan prompt yang diberikan. AI akan koreksi grammar, vocab, dan gaya penulisanmu.</p>
+          <div class="mt-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold" style="background:#f3e8ff;color:#7c3aed">✍️ Grammar & Writing</div>
+        </div>
+        <div class="card-hover bg-white rounded-3xl p-6 border" style="border-color:#e9d5ff;box-shadow:0 2px 8px rgba(124,58,237,0.06)">
+          <div class="text-4xl mb-4">💬</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Ngobrol Spontan</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Jawab pertanyaan dalam bahasa Inggris seperti sedang ngobrol biasa. Latih kemampuan speaking impulsif yang krusial.</p>
+          <div class="mt-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold" style="background:#f3e8ff;color:#7c3aed">💬 Speaking & Confidence</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LIHAT CONTOH FEEDBACK — section paling penting untuk konversi
+       Butuh 2 screenshot asli di sini.
+       ============================================================ -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">Bukan Janji Kosong</span>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Lihat Sendiri Feedbacknya</h2>
+        <p class="text-gray-500 mt-3 max-w-lg mx-auto">Begini yang kamu dapat setiap kali selesai latihan. Detail, spesifik, dan langsung bisa diperbaiki.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+
+        <!-- Contoh 1: Menyimak -->
+        <div>
+          <div class="mb-4 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center text-lg shrink-0" style="background:#f3e8ff">👂</div>
+            <div>
+              <p class="font-bold text-gray-900">Latihan Menyimak</p>
+              <p class="text-gray-500 text-xs">User kirim jawaban teks → AI langsung balas</p>
+            </div>
+          </div>
+          <!--
+            📸 SCREENSHOT PLACEHOLDER #2
+            Ganti div di bawah ini dengan tag <img> yang menampilkan screenshot WhatsApp asli.
+            Isi screenshot: percakapan WA menunjukkan
+              - Pesan user: jawaban transkripsi yang mereka tulis
+              - Balasan AI: skor akurasi (misal "Akurasi: 78%") + highlight kata yang salah + koreksi
+            Ukuran ideal: portrait 9:16 atau 3:5, width ~360px
+            Contoh kode setelah diganti:
+            <img src="screenshots/feedback-menyimak.png" alt="Contoh feedback latihan menyimak" class="w-full rounded-2xl shadow-lg border" style="border-color:#e9d5ff" />
+          -->
+          <div class="ss-placeholder" style="min-height:320px">
+            <span class="ss-label">Screenshot #2</span>
+            <div class="text-3xl my-2">📱</div>
+            <p class="font-bold text-base mb-1">Screenshot WA: Feedback Menyimak</p>
+            <p class="text-purple-500" style="font-size:0.8rem;line-height:1.5">
+              Tampilkan percakapan WhatsApp:<br/>
+              user kirim jawaban transkripsi<br/>
+              → AI balas dengan skor akurasi<br/>
+              + highlight kata yang salah<br/>
+              + koreksi yang benar
+            </p>
+          </div>
+        </div>
+
+        <!-- Contoh 2: Menulis / Ngobrol -->
+        <div>
+          <div class="mb-4 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center text-lg shrink-0" style="background:#f3e8ff">✍️</div>
+            <div>
+              <p class="font-bold text-gray-900">Latihan Menulis</p>
+              <p class="text-gray-500 text-xs">User kirim paragraf → AI koreksi grammar + vocab</p>
+            </div>
+          </div>
+          <!--
+            📸 SCREENSHOT PLACEHOLDER #3
+            Ganti div di bawah ini dengan tag <img>.
+            Isi screenshot: percakapan WA menunjukkan
+              - Pesan user: paragraf cerita pendek yang mereka tulis dalam bahasa Inggris
+              - Balasan AI: skor tulisan + koreksi grammar/vocab yang spesifik
+                (contoh: "❌ 'I am go to school' → ✅ 'I go to school'")
+            Ukuran ideal: portrait 9:16 atau 3:5, width ~360px
+          -->
+          <div class="ss-placeholder" style="min-height:320px">
+            <span class="ss-label">Screenshot #3</span>
+            <div class="text-3xl my-2">📱</div>
+            <p class="font-bold text-base mb-1">Screenshot WA: Feedback Menulis</p>
+            <p class="text-purple-500" style="font-size:0.8rem;line-height:1.5">
+              Tampilkan percakapan WhatsApp:<br/>
+              user kirim paragraf tulisan<br/>
+              → AI balas dengan koreksi<br/>
+              grammar + vocab yang detail<br/>
+              (format: ❌ salah → ✅ benar)
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tambahan: contoh feedback pronunciation jika punya screenshot -->
+      <div class="mt-10 rounded-3xl p-6 border" style="background:#faf5ff;border-color:#e9d5ff">
+        <div class="flex flex-col md:flex-row gap-6 items-center">
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-9 h-9 rounded-xl flex items-center justify-center text-lg shrink-0" style="background:#ede9fe">🎙️</div>
+              <div>
+                <p class="font-bold text-gray-900">Latihan Membaca Nyaring</p>
+                <p class="text-gray-500 text-xs">Kirim voice note → dapat skor pronunciation</p>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed">Rekam suaramu membaca teks bahasa Inggris, kirim ke WhatsApp, dan AI langsung analisis pronunciation kamu — kata per kata.</p>
+          </div>
+          <div class="w-full md:w-72 shrink-0">
+            <!--
+              📸 SCREENSHOT PLACEHOLDER #4
+              Ganti div di bawah dengan tag <img>.
+              Isi screenshot: percakapan WA menunjukkan
+                - Pesan user: voice note yang dikirim
+                - Balasan AI: skor pronunciation (misal "Skor: 85/100") + breakdown per kata
+                  (kata yang kurang jelas + saran perbaikan)
+            -->
+            <div class="ss-placeholder" style="min-height:180px">
+              <span class="ss-label">Screenshot #4</span>
+              <div class="text-2xl my-1">📱</div>
+              <p class="font-bold text-sm mb-1">Feedback Pronunciation</p>
+              <p class="text-purple-500" style="font-size:0.75rem;line-height:1.5">
+                Voice note user → skor AI<br/>+ breakdown per kata
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KENAPA SPEAKSPARK -->
+  <section class="py-16 px-4 text-white overflow-hidden relative" style="background:#3b0764">
+    <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at top right, rgba(167,139,250,0.15), transparent 60%)"></div>
+    <div class="max-w-4xl mx-auto relative z-10">
+      <div class="text-center mb-12">
+        <span class="font-semibold text-sm uppercase tracking-wider" style="color:#c084fc">Kenapa SpeakSpark?</span>
+        <h2 class="text-3xl md:text-4xl font-black mt-2">Belajar yang Sebenarnya Jalan</h2>
+        <p class="mt-3 max-w-lg mx-auto" style="color:#c084fc">Bukan kursus yang kamu lupa hadir. Bukan app yang kamu install lalu uninstall. SpeakSpark ada di mana kamu sudah ada.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="rounded-3xl p-6 border" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.1)">
+          <div class="text-4xl mb-4">📱</div>
+          <h3 class="font-bold text-lg mb-2">Cukup WhatsApp</h3>
+          <p class="text-sm leading-relaxed" style="color:#ddd6fe">Semua latihan berjalan di WhatsApp yang sudah ada di HP kamu. Tidak ada aplikasi baru, tidak ada akun baru, tidak ada setup.</p>
+        </div>
+        <div class="rounded-3xl p-6 border" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.1)">
+          <div class="text-4xl mb-4">⚡</div>
+          <h3 class="font-bold text-lg mb-2">Feedback dalam Detik</h3>
+          <p class="text-sm leading-relaxed" style="color:#ddd6fe">Tidak perlu tunggu guru manusia. Kirim jawaban, dan dalam hitungan detik kamu sudah dapat skor dan koreksi yang detail.</p>
+        </div>
+        <div class="rounded-3xl p-6 border" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.1)">
+          <div class="text-4xl mb-4">🔁</div>
+          <h3 class="font-bold text-lg mb-2">10 Menit Sehari Cukup</h3>
+          <p class="text-sm leading-relaxed" style="color:#ddd6fe">Latihannya singkat tapi terstruktur. Bisa dikerjakan di commute, sela makan siang, atau sebelum tidur — tidak ada alasan skip.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="harga" class="py-16 px-4 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">Harga</span>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Lebih Murah dari Satu Kali Les Privat</h2>
+        <p class="text-gray-500 mt-3 max-w-lg mx-auto">Latihan setiap hari sepanjang bulan, dengan feedback AI instan — bukan Rp 150.000 per jam.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <div class="card-hover rounded-3xl border-2 p-6 text-center" style="border-color:#e9d5ff">
+          <p class="font-semibold text-gray-500 text-sm mb-1">Paket Bulanan</p>
+          <p class="text-4xl font-black text-gray-900 mb-1">Rp XX.XXX</p>
+          <p class="text-gray-400 text-sm mb-6">per bulan</p>
+          <ul class="text-sm text-gray-600 space-y-2.5 text-left mb-6">
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> 4 jenis latihan harian</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Feedback AI dalam detik</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Skor & koreksi detail</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Cukup WhatsApp, tanpa app</li>
+          </ul>
+          <a href="https://goakal.com/speakspark" class="block w-full border-2 font-bold py-3 rounded-2xl transition-colors hover:bg-purple-50" style="border-color:#7c3aed;color:#7c3aed">
+            Beli Paket Ini
+          </a>
+        </div>
+        <div class="card-hover rounded-3xl border-2 p-6 text-center relative overflow-hidden" style="border-color:#7c3aed;background:#faf5ff;box-shadow:0 12px 32px rgba(124,58,237,0.2)">
+          <div class="absolute top-4 right-4 text-white text-xs font-bold px-3 py-1 rounded-full" style="background:#7c3aed">Terbaik</div>
+          <p class="font-semibold text-sm mb-1" style="color:#7c3aed">Paket 3 Bulan</p>
+          <p class="text-4xl font-black text-gray-900 mb-1">Rp XX.XXX</p>
+          <p class="text-gray-400 text-sm mb-6">hemat XX% vs bulanan</p>
+          <ul class="text-sm text-gray-600 space-y-2.5 text-left mb-6">
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Semua fitur paket bulanan</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> 90 hari akses penuh</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Cukup waktu lihat progres nyata</li>
+            <li class="flex items-center gap-2"><span style="color:#7c3aed">✓</span> Harga lebih hemat</li>
+          </ul>
+          <a href="https://goakal.com/speakspark" class="block w-full text-white font-bold py-3 rounded-2xl" style="background:#7c3aed;box-shadow:0 4px 12px rgba(124,58,237,0.4)">
+            Beli Paket Ini
+          </a>
+        </div>
+      </div>
+      <p class="text-center text-gray-400 text-sm mt-6">Pembayaran aman via GoAkal. Akses aktif langsung setelah bayar.</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONI -->
+  <section class="py-12 px-4" style="background:#faf5ff">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-8">
+        <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">Kata Mereka</span>
+        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-2">Yang Sudah Merasakan</h2>
+      </div>
+
+      <!--
+        📸 SCREENSHOT PLACEHOLDER #5, #6, #7
+        Ganti 3 div .ss-placeholder di bawah dengan foto + testimoni asli dari pembeli.
+        Format ideal:
+          - Foto profil asli (bukan inisial huruf)
+          - Nama lengkap atau nama depan + inisial belakang yang nyata
+          - Kutipan testimoni asli (bisa dari DM WA, review GoAkal, dll)
+          - Jabatan/konteks (opsional tapi menambah kredibilitas)
+        Kalau belum punya testimoni, lebih baik hapus section ini daripada pakai yang palsu.
+      -->
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="ss-placeholder" style="min-height:200px">
+          <span class="ss-label">Screenshot #5</span>
+          <div class="text-2xl my-1">🗣️</div>
+          <p class="font-bold text-sm mb-1">Testimoni Asli #1</p>
+          <p class="text-purple-500" style="font-size:0.75rem;line-height:1.5">
+            Ganti dengan foto + nama<br/>+ kutipan testimoni nyata<br/>dari pembeli
+          </p>
+        </div>
+        <div class="ss-placeholder" style="min-height:200px">
+          <span class="ss-label">Screenshot #6</span>
+          <div class="text-2xl my-1">🗣️</div>
+          <p class="font-bold text-sm mb-1">Testimoni Asli #2</p>
+          <p class="text-purple-500" style="font-size:0.75rem;line-height:1.5">
+            Ganti dengan foto + nama<br/>+ kutipan testimoni nyata<br/>dari pembeli
+          </p>
+        </div>
+        <div class="ss-placeholder" style="min-height:200px">
+          <span class="ss-label">Screenshot #7</span>
+          <div class="text-2xl my-1">🗣️</div>
+          <p class="font-bold text-sm mb-1">Testimoni Asli #3</p>
+          <p class="text-purple-500" style="font-size:0.75rem;line-height:1.5">
+            Ganti dengan foto + nama<br/>+ kutipan testimoni nyata<br/>dari pembeli
+          </p>
+        </div>
+      </div>
+
+      <p class="text-center text-gray-400 text-xs mt-5">Bisa pakai screenshot dari DM WhatsApp, review GoAkal, atau post pembeli di media sosial.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-16 px-4 bg-white" x-data="{ open: null }">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="font-semibold text-sm uppercase tracking-wider" style="color:#7c3aed">FAQ</span>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Pertanyaan Umum</h2>
+      </div>
+      <div class="space-y-3">
+        <template x-for="(faq, i) in [
+          { q: 'Apakah perlu install aplikasi khusus?', a: 'Tidak perlu sama sekali! SpeakSpark berjalan sepenuhnya di WhatsApp yang sudah ada di HP kamu. Tidak ada aplikasi baru, tidak ada login baru.' },
+          { q: 'Seberapa sering saya bisa latihan?', a: 'Sesering yang kamu mau. Tidak ada jadwal kaku. Kapanpun kamu siap, kirim pesan ke SpeakSpark, pilih latihan, dan mulai.' },
+          { q: 'Bagaimana cara dapat feedback dari AI?', a: 'Setelah kamu kirim jawaban, AI langsung membalas dengan skor dan koreksi detail — biasanya dalam hitungan detik. Tidak perlu tunggu.' },
+          { q: 'Apa bedanya dengan Duolingo atau aplikasi lainnya?', a: 'SpeakSpark tidak perlu diinstall, tidak ada gamifikasi yang ganggu fokus, dan feedbacknya beneran spesifik — bukan sekadar pilihan ganda. Kamu belajar di WhatsApp yang sudah kamu buka tiap hari.' },
+          { q: 'Bagaimana cara memulai setelah beli?', a: 'Setelah pembelian di GoAkal selesai, kamu akan dapat nomor WhatsApp SpeakSpark. Simpan nomornya, kirim \"Halo\", dan langsung bisa pilih latihan. Scroll ke bawah untuk panduan lengkapnya.' }
+        ]">
+          <div class="border rounded-2xl overflow-hidden" style="border-color:#e9d5ff">
+            <button
+              @click="open === i ? open = null : open = i"
+              class="w-full flex items-center justify-between p-5 text-left font-semibold text-gray-900 transition-colors"
+              :style="open === i ? 'background:#faf5ff' : ''"
+            >
+              <span x-text="faq.q" class="pr-4"></span>
+              <svg class="w-5 h-5 shrink-0 transition-transform duration-200" :class="open === i ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:#7c3aed">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div x-show="open === i" x-cloak class="px-5 pb-5 text-gray-600 text-sm leading-relaxed" x-text="faq.a"></div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="py-14 px-4 gradient-hero text-white text-center">
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-black mb-4">Mulai Latihan Hari Ini</h2>
+      <p class="mb-8 text-lg" style="color:#e9d5ff">Tanpa install app. Tanpa jadwal kelas. Cukup WhatsApp dan 10 menit sehari.</p>
+      <a href="https://goakal.com/speakspark" class="inline-flex items-center gap-2 bg-white hover:bg-purple-50 px-8 py-4 rounded-2xl font-bold text-lg shadow-xl transition-colors" style="color:#6d28d9">
+        Ya, Saya Mau Progress!
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- SECTION PEMBELI -->
+  <section id="mulai" class="py-16 px-4 border-t-4" style="background:#f0fdf4;border-color:#4ade80">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-10">
+        <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-semibold mb-4" style="background:#dcfce7;color:#16a34a">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Khusus yang Sudah Beli
+        </div>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900">Sudah Beli? Yuk Mulai!</h2>
+        <p class="text-gray-500 mt-3">Ikuti langkah berikut untuk mulai latihan pertamamu.</p>
+      </div>
+      <div class="bg-white rounded-3xl border shadow-sm p-6 md:p-8 space-y-6 mb-8" style="border-color:#bbf7d0">
+        <div class="flex gap-4 items-start">
+          <div class="w-9 h-9 rounded-xl bg-green-500 text-white font-black text-sm flex items-center justify-center shrink-0">1</div>
+          <div>
+            <p class="font-bold text-gray-900">Simpan nomor WhatsApp SpeakSpark</p>
+            <p class="text-gray-500 text-sm mt-1">Nomor: <strong class="text-gray-800">+62 XXX-XXXX-XXXX</strong> <span class="text-gray-400 text-xs">(ganti dengan nomor asli)</span></p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-9 h-9 rounded-xl bg-green-500 text-white font-black text-sm flex items-center justify-center shrink-0">2</div>
+          <div>
+            <p class="font-bold text-gray-900">Kirim pesan pertama</p>
+            <p class="text-gray-500 text-sm mt-1">Kirim kata <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-800 font-mono text-xs">Halo</code> ke nomor SpeakSpark untuk memulai sesi.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-9 h-9 rounded-xl bg-green-500 text-white font-black text-sm flex items-center justify-center shrink-0">3</div>
+          <div>
+            <p class="font-bold text-gray-900">Pilih jenis latihan</p>
+            <p class="text-gray-500 text-sm mt-1">Balas dengan angka sesuai menu. Contoh: ketik <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-800 font-mono text-xs">1</code> untuk Membaca Nyaring.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-9 h-9 rounded-xl bg-green-500 text-white font-black text-sm flex items-center justify-center shrink-0">4</div>
+          <div>
+            <p class="font-bold text-gray-900">Kerjakan dan tunggu feedback</p>
+            <p class="text-gray-500 text-sm mt-1">Selesaikan latihan, kirim jawaban, dan AI langsung balas dengan nilai dan koreksi.</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="https://wa.me/62XXXXXXXXXX" class="wa-btn inline-flex items-center gap-3 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:scale-105" style="box-shadow:0 8px 24px rgba(37,211,102,0.35)">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Buka WhatsApp SpeakSpark
+        </a>
+        <p class="text-gray-400 text-xs mt-3">Tombol di atas akan membuka WhatsApp di HP kamu</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white py-10 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div>
+          <div class="mb-3">
+            <img src="images/logo-speakspark.png" alt="SpeakSpark" class="h-8 w-auto brightness-0 invert" />
+          </div>
+          <p class="text-gray-400 text-sm max-w-xs leading-relaxed">Pelatih bahasa Inggris pribadi di WhatsApp. Latihan singkat, feedback instan dari AI.</p>
+        </div>
+        <div class="flex flex-col gap-2 text-sm text-gray-400">
+          <a href="#cara-kerja" class="hover:text-white transition-colors">Cara Kerja</a>
+          <a href="#fitur" class="hover:text-white transition-colors">Fitur Latihan</a>
+          <a href="#harga" class="hover:text-white transition-colors">Harga</a>
+          <a href="#mulai" class="hover:text-white transition-colors">Sudah Beli?</a>
+        </div>
+        <div class="text-sm text-gray-400">
+          <p class="mb-1">Ada pertanyaan?</p>
+          <a href="mailto:hello@speakspark.id" class="transition-colors" style="color:#a78bfa">hello@speakspark.id</a>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-500 text-sm">
+        © 2025 SpeakSpark. Hak cipta dilindungi.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
